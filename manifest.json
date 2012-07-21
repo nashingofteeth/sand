@@ -1,0 +1,18 @@
+{
+  "name": "HTMLTIE",
+  "description": "Create, save, share, instant",
+  "version": "4.5",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "notifications"
+  ]
+}
