@@ -555,7 +555,7 @@ margin-right: 10px;
             }
             function Check_Count_Mouse() {
             if(Count==4) {
-            click()
+            click1()
             }
                         if(Count==5) {
             click3()
@@ -563,28 +563,25 @@ margin-right: 10px;
             Count=0
             }
                         
-            function click() {
+            function click1() {
             document.getElementById('updateFrame').style.width = '99.9%';
             show('updateFrame');
             hide('ta');
-            show('fullscreenOff');
+            //show('fullscreenOff');
             }
             function click2() {
             show('ta');
             show('updateFrame');
             document.getElementById('updateFrame').style.width = '60%';
             document.getElementById('ta').style.width = '39.7%';
-            hide('fullscreenOff');
+            //hide('fullscreenOff');
             }
             function click3() {
             document.getElementById('ta').style.width = '99.9%';
             show('ta');
             hide('updateFrame');
-            show('fullscreenOff');
+            //show('fullscreenOff');
             }
-                        function help() {
-                        window.location = 'http://mtthw.me/instabin/help.html'
-                        }
 
             function hide(d) { document.getElementById(d).style.display = "none"; }
             function show(d) { document.getElementById(d).style.display = "inline"; }
@@ -601,46 +598,80 @@ margin-right: 10px;
                         }
                         
                         
-                        shortcut.add("Ctrl+Alt+S",function() {
-
-            document.code.submit();
-
-            });
-                        shortcut.add("Esc",function() {
-
-            click2();
-
-            });
+                        shortcut.add("Ctrl+H",function() {
+                        window.location = 'help'
+                        });
+                        shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
             </script>
       </head>
       <body id="body" onload="update(); push();">
+      <div id="instabin">
             <iframe src="javascript:''" height="100%" width="100%"
             name="updateFrame" id="updateFrame"></iframe>
             <form name="code" method="post" action=
-            "http://mtthw.me/instabin/save.php">
+            "save.php">
                   <textarea onclick="Set_Count_Mouse();" onkeyup=
                   "save()" height="100%" width="100%" autofocus=""
                   name="ta" id="ta" placeholder=
-                  "Type your HTML here...">
-		  </textarea>
+                  "Type your HTML here..." required></textarea>
             </form>
             <div id="footer">
-                  <div 
+                  <div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
                   id="head">
                         htmltie
-                  </div><button id="fullscreenOff" onclick=
-                  "click2()">X</button>
-                  <a href=
-                  "http://mtthw.me/instabin/help.html">
-                  <button type="submit"
-                  onclick="help()" title="Help">?</button></a>
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <button onclick="show('help'); hide('instabin')" title="Help">?</button>
                   <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
                    <button onclick=
                   "document.code.submit();">Save</button>
                   <input placeholder="Local project..." title=
                   "Project" id="text" type="text" onkeyup=
                   "push()"></button></a>
-            </div><script type="text/javascript">
+            </div>
+        </div>
+        <div id="help">
+        <button onclick="show('instabin'); hide('help')"><< Back</button>
+<br/>1. Clicking on the textarea 4 times quickly to switch to fullscreen.
+<br/>2. Clicking on the textarea 5 times quickly to switch to code view.
+<br/>3. Type the name of a cookie into the "Local project..." textbox to load it.
+<br/>4. Ctrl+.: preview mode
+<br/>5. Ctrl+,: code view
+<br/>6. Ctrl+M: split view
+<br/>7. Tab: select the "Local project" text box
+<br/>8. Shift+Tab: select code text box
+<br/>9. Ctrl+Enter: save to Instabin
+<br><br>
+<a href="http://mtthw.me/instabin/list">List of Instabin creations</a>
+<br>
+<a href="https://chrome.google.com/webstore/detail/adifaiooahoghhgfhlobapdpbfemkooj">Chrome App</a>
+<p>Created by <a href="http://twitter.com/mtthwn">@mtthwn</a></p>
+
+        </div>
+            <script type="text/javascript">
 
             (function() {
 
@@ -661,7 +692,8 @@ margin-right: 10px;
             window.localStorage.setItem('project', area.value);
             }, false);
             })();
-            </script><script type="text/javascript">
+            </script>
+            <script type="text/javascript">
 
             function resizeTextArea() {
             var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
