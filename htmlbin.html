@@ -1,0 +1,125 @@
+
+<html>
+<head>
+<title>htmlbin</title>
+<script type="text/javascript">
+
+var editboxHTML = 
+'<html class="expand close">' +
+'<head>' +
+'<script src="codemirror/lib/codemirror.js" type="text/javascript"></scr' + 'ipt>' +
+'<style type="text/css">' +
+'.expand { width: 100%; height: 100%; }' +
+'.close { border: none; margin: 0px; padding: 0px; }' +
+'html,body { overflow: hidden; }' +
+
+'.CodeMirror-line-numbers {' + 
+'        width: 2.2em;' +
+'        color: #aaa;' +
+'        background-color: #eee;' +
+'        text-align: right;' +
+'        padding-right: .3em;' +
+'        font-size: 10pt;' +
+'        font-family: monospace;' +
+'        padding-top: .4em;' +
+'}' +
+
+
+
+'<\/style>' +
+'<\/head>' +
+'<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
+'<form class="expand close" name="f">' +
+'<textarea id=code class="expand close" style="background: #def; font-family: monospace;" name="ta" wrap="hard" spellcheck="false">' +
+'<\/textarea>' +
+'<\/form>' +
+
+
+'<script type="text/javascript">' +
+'  var editor = CodeMirror.fromTextArea("code", {' +
+'    height: "100%",' +
+'    lineNumbers: true,' +
+'    tabMode: "spaces",' +
+'    indentUnit: 4,' + 
+'    autoMatchParens: true,' +
+'    parserfile: ["parsexml.js", "parsecss.js", "tokenizejavascript.js", "parsejavascript.js", "parsehtmlmixed.js"],' +
+'    stylesheet: ["css/xmlcolors.css", "css/jscolors.css", "css/csscolors.css"],' +
+'    path: "js/"' +
+'  });' +
+'</scr' + 'ipt>' +
+
+
+'<\/body>' +
+'<\/html>';
+
+var defaultStuff = '';
+
+// I don't want this stuff to appear in the box at the top because I feel it's likely to be distracting.
+//var extraStuff = '<div style="position:absolute; margin:.3em; bottom:0em; right:0em;"><small>\n  Created by <a href="http://web.archive.org/web/20101014203750/http://www.squarefree.com//" target="_top">Jesse Ruderman<\/a> and hosted by <a href="http://web.archive.org/web/20101014203750/http://www.dreamhost.com//rewards.cgi?jesseruderman" target="_top">DreamHost<\/a>.\n<\/small><\/div>';
+var extraStuff = '';
+
+var old = '';
+
+var loaded = false;
+         
+function init()
+{
+  window.editbox.document.write(editboxHTML);
+  window.editbox.document.close();
+  //window.editbox.document.f.ta.value = defaultStuff;
+  setInterval("update()", 150);
+  setInterval("saveLocally()", 1000);
+}
+
+function update()
+{
+  if (window.editbox.editor == undefined) return;
+  code = window.editbox.editor.getCode();
+  var d = dynamicframe.document; 
+
+  if (old != code) {
+    old = code;
+    d.open();
+    d.write(old);
+    if (old.replace(/[\r\n]/g,'') == defaultStuff.replace(/[\r\n]/g,''))
+      d.write(extraStuff);
+    d.close();
+  }
+}
+
+function saveLocally() {
+    if (!loaded) {
+        code = localStorage.getItem('code');
+        if (code == null) code = "";
+        window.editbox.editor.setCode(code);
+        loaded = true;
+    } else {
+        code = window.editbox.editor.getCode();
+        localStorage.setItem('code', code);
+    }
+}
+
+</script>
+</head>
+
+<frameset resizable="yes" cols="50%,*" onload="init();">
+  <!-- about:blank confuses opera, so use javascript: URLs instead -->
+  <frame name="editbox" src="javascript:'';">
+  <frame name="dynamicframe" src="javascript:'';">
+</frameset>
+
+</html>
+
+
+
+
+
+<!--
+     FILE ARCHIVED ON 20:37:50 Oct 14, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 1:56:21 Dec 2, 2012.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+
