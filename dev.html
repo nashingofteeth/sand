@@ -10,6 +10,7 @@
     <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
     <link rel=stylesheet href="codemirror/lib/codemirror.css">
     <link rel=stylesheet href="codemirror/doc/docs.css">
+	<script src="hotkeys.js"></script>
     <style type="text/css">
 	  body {
 	    max-width: 110%;
@@ -31,6 +32,10 @@
 		margin-right: -50px;
         border: 1px solid black;
       }
+	  header {
+        font-family: Verdana;
+		display: inline;
+	  }
     </style>
 	<script language="JavaScript">
 <!--
@@ -46,9 +51,73 @@ function calcHeight()
       the_height;
 }
 //-->
+            function hide(d) {document.querySelector(d).style.display = "none";}
+            function show(d) {document.querySelector(d).style.display = "inline";}
+			
+            function click1() {
+			//fullscreen preview
+            hide('.CodeMirror');
+			show('#preview');
+            document.getElementById('preview').style.width = '100%';
+            //show('fullscreenOff');
+            }
+            function click2() {
+			//split view
+            show('.CodeMirror');
+            show('#preview');
+            document.getElementById('preview').style.width = '60%';
+            document.querySelector('.CodeMirror').style.width = '40%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+			//fullscreen code view
+            show('.CodeMirror');
+            hide('#preview');
+            document.querySelector('.CodeMirror').style.width = '100%';
+            //show('fullscreenOff');
+            }
+			
+			var cookie = "save";
+                        function push() {
+                            var cookie = document.getElementById('text').value;
+						    editor.setValue('');
+							editor.setValue(window.localStorage.getItem(cookie));
+						}
+
+                        function save() {
+                            var cookie = document.getElementById('text').value;
+                            var value = editor.getValue();
+							window.localStorage.setItem(cookie, value);
+						}
+						
+			shortcut.add("Esc",function() {
+                        click2();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        editor.focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
 </script>
   </head>
-  <body onload="editor.setValue(window.localStorage.getItem('save'));" onkeyup="var value = editor.getValue(); window.localStorage.setItem('save', value);">
+  <body onload="push()">
+	<header>HTMLTIE</header>
+	<button title="Ctrl+," onclick="click3()">&#60;</button> 
+    <button title="Ctrl+m or Esc" onclick="click2()">|</button>
+    <button title="Ctrl+." onclick="click1()">&#62;</button>
+	<input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
+	<br>
 	<textarea autofocus id="code" name="code"></textarea>
     <iframe scrolling="no" height="1" onload="calcHeight()" id="preview"></iframe>
     <script>
@@ -75,22 +144,31 @@ function calcHeight()
       setTimeout(updatePreview, 300);
     </script>
     <script>
-// place content from previous edit
-function load() {
-    editor.setValue(window.localStorage.getItem('save'));
-}
+            (function() {
 
-// your content will be saved locally
-setInterval(function() {
-    save();
-}, 1000);
+            try {
+            (window.localStorage.getItem) // will throw in Firefox under some settings
+            } catch (e) {
+            return; // quit because dom.storage.enabled is false
+            }
 
-function save() {
-    var value = editor.getValue();
-    window.localStorage.setItem('save', value);
-}​
+            var area = document.querySelector('#text');
+            // place content from previous edit
+            if (!area.value) {
+            area.value = window.localStorage.getItem('project');
+            }
 
+            // your content will be saved locally
+            document.querySelector('#text').addEventListener('keyup', function() {
+            window.localStorage.setItem('project', area.value);
+            }, false);
+            })();
     </script>
-<script>editor.setOption("theme", "monokai");</script>
+    <script>
+	editor.setOption("theme", "monokai");
+	document.querySelector('.CodeMirror').addEventListener('keyup', function() {
+        save();
+    }, false);
+	</script>
   </body>
 </html>
