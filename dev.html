@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>HTMLTIE</title>
+    <meta charset="utf-8">
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/xml/xml.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+	<script src="codemirror/lib/util/foldcode.js"></script>
+    <script src="codemirror/mode/css/css.js"></script>
+    <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <link rel=stylesheet href="codemirror/lib/codemirror.css">
+    <link rel=stylesheet href="codemirror/doc/docs.css">
+    <style type="text/css">
+	  body {
+	    max-width: 110%;
+		max-height: 110%;
+		margin: auto auto auto -16px;	
+	  }
+      .CodeMirror {
+        float: left;
+        width: 40%;
+		height: auto;
+        border: 1px solid black;
+      }
+	  .CodeMirror-scroll {
+	    height: auto;
+	  }
+      #preview {
+        width: 60%;
+        float: left;
+		margin-right: -50px;
+        border: 1px solid black;
+      }
+    </style>
+	<script language="JavaScript">
+<!--
+function calcHeight()
+{
+  //find the height of the internal page
+  var the_height=
+    document.getElementById('preview').contentWindow.
+      document.body.scrollHeight;
+
+  //change the height of the iframe
+  document.getElementById('preview').height=
+      the_height;
+}
+//-->
+</script>
+  </head>
+  <body onload="editor.setValue(window.localStorage.getItem('save'));" onkeyup="var value = editor.getValue(); window.localStorage.setItem('save', value);">
+	<textarea autofocus id="code" name="code"></textarea>
+    <iframe scrolling="no" height="1" onload="calcHeight()" id="preview"></iframe>
+    <script>
+      var delay;
+      // Initialize CodeMirror editor with a nice html5 canvas demo.
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        mode: 'text/html',
+        tabMode: 'indent',
+		lineNumbers: true,
+  		lineWrapping: true,
+        onChange: function() {
+          clearTimeout(delay);
+          delay = setTimeout(updatePreview, 300);
+        }
+      });
+      
+      function updatePreview() {
+        var previewFrame = document.getElementById('preview');
+        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+        preview.open();
+        preview.write(editor.getValue());
+        preview.close();
+      }
+      setTimeout(updatePreview, 300);
+    </script>
+    <script>
+// place content from previous edit
+function load() {
+    editor.setValue(window.localStorage.getItem('save'));
+}
+
+// your content will be saved locally
+setInterval(function() {
+    save();
+}, 1000);
+
+function save() {
+    var value = editor.getValue();
+    window.localStorage.setItem('save', value);
+}​
+    </script>
+  </body>
+</html>
