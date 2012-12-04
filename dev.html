@@ -11,7 +11,20 @@
     <link rel=stylesheet href="codemirror/lib/codemirror.css">
     <link rel=stylesheet href="codemirror/doc/docs.css">
 	<script src="hotkeys.js"></script>
+	<link href="favicon.ico" rel="Shortcut Icon">
     <style type="text/css">
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+	border-radius: 5px; 
+	padding-right: 50px;
+}
 	  body {
 	    max-width: 110%;
 		max-height: 110%;
@@ -139,8 +152,9 @@ function calcHeight()
 	  <button title="Ctrl+," onclick="click1()">&#60;</button><br> 
 	  <button title="Ctrl+m or Esc" onclick="click2()">|</button><br>
 	  <button title="Ctrl+." onclick="click3()">&#62;</button>
-	<br><br><br><br>
+	  <br><br><br><br>
 	  <input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
+	  <img style="position: absolute; bottom: 0px; right: 0px;" src="favicon.ico">
 	</div>
 	<textarea autofocus id="code" name="code"></textarea>
     <iframe height="99.5%" id="preview"></iframe>
