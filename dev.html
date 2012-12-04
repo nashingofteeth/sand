@@ -15,7 +15,7 @@
 	  body {
 	    max-width: 110%;
 		max-height: 110%;
-		margin: auto auto auto -16px;	
+		margin: auto auto auto -16px;
 	  }
       .CodeMirror {
         float: left;
@@ -23,9 +23,6 @@
 		height: auto;
         border: 1px solid black;
       }
-	  .CodeMirror-scroll {
-	    height: auto;
-	  }
       #preview {
         width: 60%;
         float: left;
@@ -119,7 +116,7 @@ function calcHeight()
 	<input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
 	<br>
 	<textarea autofocus id="code" name="code"></textarea>
-    <iframe scrolling="no" height="1" onload="calcHeight()" id="preview"></iframe>
+    <iframe height="94%" id="preview"></iframe>
     <script>
       var delay;
       // Initialize CodeMirror editor with a nice html5 canvas demo.
@@ -166,6 +163,7 @@ function calcHeight()
     </script>
     <script>
 	editor.setOption("theme", "monokai");
+	editor.setSize(null, "94%");
 	document.querySelector('.CodeMirror').addEventListener('keyup', function() {
         save();
     }, false);
