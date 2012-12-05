@@ -125,11 +125,9 @@ function calcHeight()
             }
 
 		function publish() {
-  			var data = editor.getValue();
-  			var post = "http://mtthw.herobo.com/publish.php?data=" + data
-  			window.location = post; 
+			document.forms["publish"].submit();
   		}
-			
+
 			var cookie = "";
                         function push() {
                             var cookie = document.getElementById('text').value;
@@ -173,11 +171,13 @@ function calcHeight()
 	  <button title="Fullscreen preview: Ctrl+," onclick="click1()">&#60;</button><br> 
 	  <button title="Split view: Ctrl+m or Esc" onclick="click2()">|</button><br>
 	  <button title="Code view: Ctrl+." onclick="click3()">&#62;</button><br>
-	  <button title="Publish: Ctrl+Enter" onclick="publish()">P</button>
+	  <button title="Publish: Ctrl+Enter" id="submit">P</button>
 	  <br>
 	  <input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
 	</div>
-	<textarea autofocus id="code" name="code"></textarea>
+	<form name="publish" method="post" action="http://cdv.lt/">
+	  <textarea autofocus id="code" name="code_data"></textarea>
+	</form>
     	<iframe height="99.5%" id="preview"></iframe>
 	<footer>v3.2 rev.<br><a href="http://mtthw.me">MN</a></footer>
     <script>
@@ -228,9 +228,12 @@ function calcHeight()
 	editor.setOption("theme", "blackboard");
 	editor.setSize(null, "99.5%");
 	document.querySelector('.CodeMirror').addEventListener('keyup', function() {
-        save();
-    }, false);
+        	save();
+	}, false);
 	
+	document.querySelector('#submit').addEventListener('click', function() {
+		publish();
+	}, false);	
 	</script>
   </body>
 </html>
