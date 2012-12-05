@@ -123,6 +123,12 @@ function calcHeight()
             document.querySelector('.CodeMirror').style.width = '97.83%';
             //show('fullscreenOff');
             }
+
+		function publish() {
+  			var data = editor.getValue();
+  			var post = "http://mtthw.herobo.com/publish.php?data=" + data
+  			window.location = post; 
+  		}
 			
 			var cookie = "";
                         function push() {
@@ -139,6 +145,9 @@ function calcHeight()
 						
 			shortcut.add("Esc",function() {
                         click2();
+                        });
+                        shortcut.add("Ctrl+Enter",function() {
+			publish();
                         });
                         shortcut.add("Ctrl+M",function() {
                         click2();
@@ -164,6 +173,7 @@ function calcHeight()
 	  <button title="Ctrl+," onclick="click1()">&#60;</button><br> 
 	  <button title="Ctrl+m or Esc" onclick="click2()">|</button><br>
 	  <button title="Ctrl+." onclick="click3()">&#62;</button>
+	  <button title="Ctrl+Enter" onclick="publish()">P</button>
 	  <br>
 	  <input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
 	</div>
