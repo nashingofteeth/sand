@@ -26,7 +26,7 @@
 	padding-right: 50px;
 }
 	  body {
-	    max-width: 110%;
+		max-width: 100%;
 		max-height: 110%;
 		margin: auto auto auto -16px;
 	  }
@@ -39,13 +39,15 @@
       #preview {
         width: 58%;
         float: left;
-		margin-right: -50px;
         border: 1px solid black;
       }
 	#sidebar {
 	float: right;
 	width: 10px;
-	margin-right: -3px;
+	height: 10px;
+	position: absolute;
+	top: 0px;
+	right: 10px;
 	}
 	#sidebar button {
 	width: 20px;
@@ -54,24 +56,23 @@
 	border-right: none;
 	color: black;
 	cursor: pointer;
-	margin-left: 3px;
 	}
 	#sidebar button:hover {
 	border-left: 3px solid black;
 	}
 	#sidebar input[type=text] {
 	-webkit-transform: rotate(90deg);
-	margin-left: -65px;
-	margin-right: -80px;
+	-moz-transform: rotate(90deg);
 	border: 1px solid black;
-	padding: 2px;
+	padding: 3px;
 	border-top: none;
+	margin: auto -55px auto -52px;
 	}
 	#sidebar input[type=text]:focus {
 	outline: none;
 	background-color: #000;
 	color: #fff;
-	}
+	} 
     </style>
 	<script language="JavaScript">
 <!--
@@ -148,13 +149,13 @@ function calcHeight()
 </script>
   </head>
   <body onload="push()">
-	<div id="sidebar">	
+	<div id="sidebar">
+	  <img onclick="location.reload();" style="width: 20px; cursor: pointer; height: 18px; margin:0px 0px 5px 0px;" src="icon.png"/>
 	  <button title="Ctrl+," onclick="click1()">&#60;</button><br> 
 	  <button title="Ctrl+m or Esc" onclick="click2()">|</button><br>
 	  <button title="Ctrl+." onclick="click3()">&#62;</button>
-	  <br><br><br><br>
+	  <br><br><br><br> 
 	  <input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
-	  <img style="position: absolute; bottom: 0px; right: 0px;" src="favicon.ico">
 	</div>
 	<textarea autofocus id="code" name="code"></textarea>
     <iframe height="99.5%" id="preview"></iframe>
@@ -208,6 +209,7 @@ function calcHeight()
 	document.querySelector('.CodeMirror').addEventListener('keyup', function() {
         save();
     }, false);
+	
 	</script>
   </body>
 </html>
