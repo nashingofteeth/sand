@@ -1,0 +1,722 @@
+<html>
+      <head>
+            <title>
+                  HTMLTIE
+            </title>
+            <link href=
+            'http://fonts.googleapis.com/css?family=Yellowtail'
+            rel='stylesheet' type='text/css'>
+            <link href=
+            "favicon.ico"
+            rel="Shortcut Icon">
+			<script>
+			shortcut = {
+
+    'all_shortcuts':{},//All the shortcuts are stoblack in this array
+
+	'add': function(shortcut_combination,callback,opt) {
+
+		//Provide a set of default options
+
+		var default_options = {
+
+			'type':'keydown',
+
+			'propagate':false,
+
+			'disable_in_input':false,
+
+			'target':document,
+
+			'keycode':false
+
+		}
+
+		if(!opt) opt = default_options;
+
+		else {
+
+			for(var dfo in default_options) {
+
+				if(typeof opt[dfo] == 'undefined') opt[dfo] = default_options[dfo];
+
+			}
+
+		}
+
+
+
+		var ele = opt.target;
+
+		if(typeof opt.target == 'string') ele = document.getElementById(opt.target);
+
+		var ths = this;
+
+		shortcut_combination = shortcut_combination.toLowerCase();
+
+
+
+		//The function to be called at keypress
+
+		var func = function(e) {
+
+			e = e || window.event;
+
+			
+
+			if(opt['disable_in_input']) { //Don't enable shortcut keys in Input, Textarea fields
+
+				var element;
+
+				if(e.target) element=e.target;
+
+				else if(e.srcElement) element=e.srcElement;
+
+				if(element.nodeType==3) element=element.parentNode;
+
+
+
+				if(element.tagName == 'INPUT' || element.tagName == 'TEXTAREA') return;
+
+			}
+
+	
+
+			//Find Which key is pressed
+
+			if (e.keyCode) code = e.keyCode;
+
+			else if (e.which) code = e.which;
+
+			var character = String.fromCharCode(code).toLowerCase();
+
+			
+
+			if(code == 188) character=","; //If the user presses , when the type is onkeydown
+
+			if(code == 190) character="."; //If the user presses , when the type is onkeydown
+
+
+
+			var keys = shortcut_combination.split("+");
+
+			//Key Pressed - counts the number of valid keypresses - if it is same as the number of keys, the shortcut function is invoked
+
+			var kp = 0;
+
+			
+
+			//Work around for stupid Shift key bug created by using lowercase - as a result the shift+num combination was broken
+
+			var shift_nums = {
+
+				"`":"~",
+
+				"1":"!",
+
+				"2":"@",
+
+				"3":"#",
+
+				"4":"$",
+
+				"5":"%",
+
+				"6":"^",
+
+				"7":"&",
+
+				"8":"*",
+
+				"9":"(",
+
+				"0":")",
+
+				"-":"_",
+
+				"=":"+",
+
+				";":":",
+
+				"'":"\"",
+
+				",":"<",
+
+				".":">",
+
+				"/":"?",
+
+				"\\":"|"
+
+			}
+
+			//Special Keys - and their codes
+
+			var special_keys = {
+
+				'esc':27,
+
+				'escape':27,
+
+				'tab':9,
+
+				'space':32,
+
+				'return':13,
+
+				'enter':13,
+
+				'backspace':8,
+
+	
+
+				'scrolllock':145,
+
+				'scroll_lock':145,
+
+				'scroll':145,
+
+				'capslock':20,
+
+				'caps_lock':20,
+
+				'caps':20,
+
+				'numlock':144,
+
+				'num_lock':144,
+
+				'num':144,
+
+				
+
+				'pause':19,
+
+				'break':19,
+
+				
+
+				'insert':45,
+
+				'home':36,
+
+				'delete':46,
+
+				'end':35,
+
+				
+
+				'pageup':33,
+
+				'page_up':33,
+
+				'pu':33,
+
+	
+
+				'pagedown':34,
+
+				'page_down':34,
+
+				'pd':34,
+
+	
+
+				'left':37,
+
+				'up':38,
+
+				'right':39,
+
+				'down':40,
+
+	
+
+				'f1':112,
+
+				'f2':113,
+
+				'f3':114,
+
+				'f4':115,
+
+				'f5':116,
+
+				'f6':117,
+
+				'f7':118,
+
+				'f8':119,
+
+				'f9':120,
+
+				'f10':121,
+
+				'f11':122,
+
+				'f12':123
+
+			}
+
+	
+
+			var modifiers = { 
+
+				shift: { wanted:false, pressed:false},
+
+				ctrl : { wanted:false, pressed:false},
+
+				alt  : { wanted:false, pressed:false},
+
+				meta : { wanted:false, pressed:false}	//Meta is Mac specific
+
+			};
+
+                        
+
+			if(e.ctrlKey)	modifiers.ctrl.pressed = true;
+
+			if(e.shiftKey)	modifiers.shift.pressed = true;
+
+			if(e.altKey)	modifiers.alt.pressed = true;
+
+			if(e.metaKey)   modifiers.meta.pressed = true;
+
+                        
+
+			for(var i=0; k=keys[i],i<keys.length; i++) {
+
+				//Modifiers
+
+				if(k == 'ctrl' || k == 'control') {
+
+					kp++;
+
+					modifiers.ctrl.wanted = true;
+
+
+
+				} else if(k == 'shift') {
+
+					kp++;
+
+					modifiers.shift.wanted = true;
+
+
+
+				} else if(k == 'alt') {
+
+					kp++;
+
+					modifiers.alt.wanted = true;
+
+				} else if(k == 'meta') {
+
+					kp++;
+
+					modifiers.meta.wanted = true;
+
+				} else if(k.length > 1) { //If it is a special key
+
+					if(special_keys[k] == code) kp++;
+
+					
+
+				} else if(opt['keycode']) {
+
+					if(opt['keycode'] == code) kp++;
+
+
+
+				} else { //The special keys did not match
+
+					if(character == k) kp++;
+
+					else {
+
+						if(shift_nums[character] && e.shiftKey) { //Stupid Shift key bug created by using lowercase
+
+							character = shift_nums[character]; 
+
+							if(character == k) kp++;
+
+						}
+
+					}
+
+				}
+
+			}
+
+			
+
+			if(kp == keys.length && 
+
+						modifiers.ctrl.pressed == modifiers.ctrl.wanted &&
+
+						modifiers.shift.pressed == modifiers.shift.wanted &&
+
+						modifiers.alt.pressed == modifiers.alt.wanted &&
+
+						modifiers.meta.pressed == modifiers.meta.wanted) {
+
+				callback(e);
+
+	
+
+				if(!opt['propagate']) { //Stop the event
+
+					//e.cancelBubble is supported by IE - this will kill the bubbling process.
+
+					e.cancelBubble = true;
+
+					e.returnValue = false;
+
+	
+
+					//e.stopPropagation works in Firefox.
+
+					if (e.stopPropagation) {
+
+						e.stopPropagation();
+
+						e.preventDefault();
+
+					}
+
+					return false;
+
+				}
+
+			}
+
+		}
+
+		this.all_shortcuts[shortcut_combination] = {
+
+			'callback':func, 
+
+			'target':ele, 
+
+			'event': opt['type']
+
+		};
+
+		//Attach the function with the event
+
+		if(ele.addEventListener) ele.addEventListener(opt['type'], func, false);
+
+		else if(ele.attachEvent) ele.attachEvent('on'+opt['type'], func);
+
+		else ele['on'+opt['type']] = func;
+
+	},
+
+
+
+	//Remove the shortcut - just specify the shortcut and I will remove the binding
+
+	'remove':function(shortcut_combination) {
+
+		shortcut_combination = shortcut_combination.toLowerCase();
+
+		var binding = this.all_shortcuts[shortcut_combination];
+
+		delete(this.all_shortcuts[shortcut_combination])
+
+		if(!binding) return;
+
+		var type = binding['event'];
+
+		var ele = binding['target'];
+
+		var callback = binding['callback'];
+
+
+
+		if(ele.detachEvent) ele.detachEvent('on'+type, callback);
+
+		else if(ele.removeEventListener) ele.removeEventListener(type, callback, false);
+
+		else ele['on'+type] = false;
+
+	}
+
+}
+			</script>
+			<style>
+			html {
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: black;
+	border-radius: 5px; 
+	padding-right: 50px;
+}
+html, body, iframe { margin:0; padding:0; height:99.9%; }
+#ta {
+float: right;
+//background: #f9f9f9;
+padding-left: 5px;
+border:none;
+display: block;
+width: 39.7%;
+height: 100.4%;
+resize: none;
+border-left: 1px solid black;
+}
+#ta:focus {outline:0; outline:none;}
+#text {
+border-top: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;
+border-bottom: none;
+color: black;
+padding-left: 3px;
+}
+#footer button {
+background-color: white;
+border-top: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;
+border-bottom: none;
+color: black;
+cursor: pointer;
+margin-right: -3px;
+}
+#footer button:hover {
+border-top: 3px solid black;
+}
+#text:focus {outline:0; outline:none;}
+#updateFrame {
+float: left;
+padding: 0;
+border: 1px solid #999;
+display: block;
+width: 60%;
+border: none;
+}
+#ta-log {
+position:absolute;
+bottom: 5px;
+right: 5px;
+font-size: 12px;
+}
+#fullscreenOff {
+display: none;
+}
+#fullscreenOff:active {
+color: black;
+}
+#footer {
+font-family: monospace;
+font-size: 10px;
+position: fixed;
+bottom: -5px;
+right: 25px;
+}
+#head {
+font-family: 'Yellowtail', arial;
+display: inline;
+font-size: 20px;
+margin-right: 10px;
+}
+#help {
+display: none;
+font-family: monospace;
+float: left;
+margin-left: 35%;
+margin-top: 10%;
+width: 400px;
+border: 1px solid black;
+padding: 10px;
+-webkit-border-radius: 3px;
+}
+			</style>
+            <script type="text/javascript">
+
+                        
+            var old = '';
+
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+                        
+                        Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click1()
+            }
+                        if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+                        
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+                        
+                        var cookie = "value";
+                        function push() {
+                            var cookie = document.getElementById('text').value;
+                            document.getElementById('ta').value = window.localStorage.getItem(cookie);
+                        }
+
+                        function save() {
+                            var cookie = document.getElementById('text').value;
+                            window.localStorage.setItem(cookie, document.getElementById('ta').value);
+                        }
+                        
+                        
+                        shortcut.add("Esc",function() {
+                        show('instabin'); hide('help');click2();
+                        });
+                        shortcut.add("Ctrl+H",function() {
+                        show('help'); hide('instabin')
+                        });
+                        shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+            </script>
+      </head>
+      <body id="body" onload="update(); push();">
+      <div id="instabin">
+            <iframe src="javascript:''" height="100%" width="100%"
+            name="updateFrame" id="updateFrame"></iframe>
+            <form name="code" method="post" action=
+            "http://mtthw.me/instabin/save.php">
+                  <textarea onclick="Set_Count_Mouse();" onkeyup=
+                  "save()" height="100%" width="100%" autofocus=""
+                  name="ta" id="ta" placeholder=
+                  "Type your HTML here..." required></textarea>
+            </form>
+            <div id="footer">
+                  <div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        htmltie
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <button onclick="show('help'); hide('instabin')" title="Help">?</button>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Save</button>
+                  <input placeholder="Local project..." title=
+                  "Project" id="text" type="text" onkeyup=
+                  "push()"></button></a>
+            </div>
+        </div>
+        <div id="help">
+        <span style="color: red;cursor:pointer;" onclick="show('instabin'); hide('help')">X</span> or press ESC
+        <h2>Shortcuts and Info</h2>
+1. Clicking on the textarea 4 times quickly to switch to fullscreen.
+<br/>2. Clicking on the textarea 5 times quickly to switch to code view.
+<br/>3. Type the name of a cookie into the "Local project..." textbox to load it.
+<br/>4. Ctrl+.: preview mode
+<br/>5. Ctrl+,: code view
+<br/>6. Ctrl+M: split view
+<br/>7. Tab: select the "Local project" text box
+<br/>8. Shift+Tab: select code text box
+<br/>9. Ctrl+Enter: save to Instabin
+<br><br>
+<a href="http://mtthw.me/instabin/list">List of Instabin creations</a>
+<br>
+<a href="https://chrome.google.com/webstore/detail/adifaiooahoghhgfhlobapdpbfemkooj">Chrome App</a>
+<p>Created by <a href="http://twitter.com/mtthwn">@mtthwn</a></p>
+
+        </div>
+            <script type="text/javascript">
+
+            (function() {
+
+            try {
+            (window.localStorage.getItem) // will throw in Firefox under some settings
+            } catch (e) {
+            return; // quit because dom.storage.enabled is false
+            }
+
+            var area = document.querySelector('#text');
+            // place content from previous edit
+            if (!area.value) {
+            area.value = window.localStorage.getItem('project');
+            }
+
+            // your content will be saved locally
+            document.querySelector('#text').addEventListener('keyup', function() {
+            window.localStorage.setItem('project', area.value);
+            }, false);
+            })();
+            </script>
+            <script type="text/javascript">
+
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+            </script>
+      </body>
+</html>
