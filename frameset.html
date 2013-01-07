@@ -75,7 +75,7 @@ var editboxHTML =
 
 
 '<script type="text/javascript">' +
-'var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "text/html", lineNumbers: true, lineWrapping: true, tabMode: "indent", onCursorActivity: function() {editor.setLineClass(hlLine, null, null);hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline"); editor.matchHighlight("CodeMirror-matchhighlight");}});' +
+'var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "text/html", lineNumbers: true, lineWrapping: true, tabMode: "indent", onCursorActivity: function() {editor.setLineClass(hlLine, null, null);hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline"); editor.matchHighlight("CodeMirror-matchhighlight");}, tabSize: 4, indentUnit: 4, indentWithTabs: true});' +
 'var hlLine = editor.setLineClass(0, "activeline");' +
 'editor.setOption("theme", "vibrant-ink");' +
 'editor.focus();' +
