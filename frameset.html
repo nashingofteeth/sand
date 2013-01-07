@@ -21,6 +21,9 @@ var editboxHTML =
 '<link rel="stylesheet" href="codemirror/lib/util/dialog.css">' +
 '<script src="codemirror/lib/util/searchcursor.js"></scr' + 'ipt>' +
 '<script src="codemirror/lib/util/search.js"></scr' + 'ipt>' +
+'<script src="hotkeys.js"></scr' + 'ipt>' +
+'<script>shortcut.add("Alt+Shift",function() { window.setCookie(); });</scr' + 'ipt>' +
+'<script>function setCookie() { var cookie = prompt("Project name:", ""); document.getElementById("cookie").innerHTML = cookie; editor.setValue(""); document.getElementById("loaded").innerHTML = "false"; }</scr' + 'ipt>' +
 '<style type="text/css">' +
 '.expand { width: 100%; height: 100%; }' +
 '.close { border: none; margin: 0px; padding: 0px; }' +
@@ -51,8 +54,8 @@ var editboxHTML =
 '.CodeMirror-scroll {' +
 '        height: 100%;' +
 '}' +
-'.activeline {background: #333 !important;}' +
-'span.CodeMirror-matchhighlight { background: #555 }' +
+'.activeline {background: #222 !important;}' +
+'span.CodeMirror-matchhighlight { background: #555; }' +
 '.CodeMirror-focused span.CodeMirror-matchhighlight { background: #555; !important }' +
 '.cm-tab {' +
 '         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);' +
@@ -67,10 +70,12 @@ var editboxHTML =
 '<textarea id=code class="expand close" style="background: #def; font-family: monospace;" name="ta" wrap="hard" spellcheck="false">' +
 '<\/textarea>' +
 '<\/form>' +
+'<div id="cookie" style="display: none;"><\/div>' +
+'<div id="loaded" style="display: none;">false<\/div>' +
 
 
 '<script type="text/javascript">' +
-'var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "text/html", lineNumbers: true, lineWrapping: true, tabMode: "indent", onCursorActivity: function() {editor.setLineClass(hlLine, null, null);hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline"); editor.matchHighlight("CodeMirror-matchhighlight");},tabSize: 4,indentUnit: 4,indentWithTabs: true});' +
+'var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "text/html", lineNumbers: true, lineWrapping: true, tabMode: "indent", onCursorActivity: function() {editor.setLineClass(hlLine, null, null);hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline"); editor.matchHighlight("CodeMirror-matchhighlight");}});' +
 'var hlLine = editor.setLineClass(0, "activeline");' +
 'editor.setOption("theme", "vibrant-ink");' +
 'editor.focus();' +
@@ -86,7 +91,7 @@ var extraStuff = '';
 
 var old = '';
 
-var loaded = false;
+var loaded = window.editbox.document.getElementById('loaded').innerHTML;
          
 function init()
 {
@@ -113,15 +118,17 @@ function update()
   }
 }
 
+var cookie = ""
 function saveLocally() {
-    if (!loaded) {
-        code = localStorage.getItem('');
+    var cookie = window.editbox.document.getElementById('cookie').innerHTML;
+    if (window.editbox.document.getElementById('loaded').innerHTML == 'false') {
+        code = localStorage.getItem(cookie);
         if (code == null) code = "";
         window.editbox.editor.setValue(code);
-        loaded = true;
+        window.editbox.document.getElementById('loaded').innerHTML = 'true';
     } else {
         code = window.editbox.editor.getValue();
-        localStorage.setItem('', code);
+        localStorage.setItem(cookie, code);
     }
 }
 
