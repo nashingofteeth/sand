@@ -1,0 +1,239 @@
+<html lang="en" manifest="cache.appcache">
+<!-- _  _ ___ _  _ _    ___ _ ____ -->
+<!-- |__|  |  |\/| |     |  | |___ -->
+<!-- |  |  |  |  | |___  |  | |___ -->
+<!--           By Mtthw.me         -->
+  <head>
+    <title>HTMLTIE</title>
+    <meta charset="utf-8">
+    <script src="codemirror/lib/codemirror.js"></script>
+    <script src="codemirror/mode/xml/xml.js"></script>
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <script src="codemirror/mode/css/css.js"></script>
+    <link rel="stylesheet" href="codemirror/theme/blackboard.css">
+    <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <link rel=stylesheet href="codemirror/lib/codemirror.css">
+    <link rel=stylesheet href="codemirror/doc/docs.css">
+	<script src="hotkeys.js"></script>
+	<link href="favicon.ico" rel="Shortcut Icon">
+    <style type="text/css">
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+	border-radius: 5px; 
+	padding-right: 50px;
+}
+	  body {
+		max-width: 100%;
+		max-height: 110%;
+		margin: auto auto auto -16px;
+	  }
+      .CodeMirror {
+        float: left;
+        width: 40%;
+		height: auto;
+        border: 1px solid black;
+      }
+      #preview {
+	float: right;
+        width: 58%;
+        float: left;
+        border: 1px solid black;
+      }
+	#sidebar {
+	position: fixed;
+	top: 0px;
+	right: -4px;
+	}
+	#sidebar button {
+	width: 20px;
+	background-color: white;
+	border: 1px solid black;
+	border-right: none;
+	color: black;
+	cursor: pointer;
+	}
+	#sidebar button:hover {
+	border-left: 3px solid black;
+	}
+	#sidebar input[type=text] {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	border: 1px solid black;
+	padding: 3px;
+	border-top: none;
+	width: 75px;
+	margin: 30px -27px 0px -27px;
+	}
+	#sidebar input[type=text]:focus {
+	outline: none;
+	background-color: #000;
+	color: #fff;
+	}
+	footer {
+	width: 20px;
+	font-size: 10px;
+	position: fixed;
+	bottom: 0px;
+	right: 2px;
+	} 
+    </style>
+	<script language="JavaScript">
+<!--
+function calcHeight()
+{
+  //find the height of the internal page
+  var the_height=
+    document.getElementById('preview').contentWindow.
+      document.body.scrollHeight;
+
+  //change the height of the iframe
+  document.getElementById('preview').height=
+      the_height;
+}
+//-->
+            function hide(d) {document.querySelector(d).style.display = "none";}
+            function show(d) {document.querySelector(d).style.display = "inline";}
+			
+            function click1() {
+			//fullscreen preview
+            hide('.CodeMirror');
+			show('#preview');
+            document.getElementById('preview').style.width = '98%';
+            //show('fullscreenOff');
+            }
+            function click2() {
+			//split view
+            show('.CodeMirror');
+            show('#preview');
+            document.getElementById('preview').style.width = '58%';
+            document.querySelector('.CodeMirror').style.width = '40%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+			//fullscreen code view
+            show('.CodeMirror');
+            hide('#preview');
+            document.querySelector('.CodeMirror').style.width = '97.83%';
+            //show('fullscreenOff');
+            }
+
+		function publish() {
+			document.forms["publish"].submit();
+  		}
+
+			var cookie = "";
+                        function push() {
+                            var cookie = document.getElementById('text').value;
+						    editor.setValue('');
+							editor.setValue(window.localStorage.getItem(cookie));
+						}
+
+                        function save() {
+                            var cookie = document.getElementById('text').value;
+                            var value = editor.getValue();
+							window.localStorage.setItem(cookie, value);
+						}
+						
+			shortcut.add("Esc",function() {
+                        click2();
+                        });
+                        shortcut.add("Ctrl+Enter",function() {
+			publish();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        editor.focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click3();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click1();
+                        });
+</script>
+  </head>
+  <body onload="push()">
+	<div id="sidebar">
+	  <img onclick="location.reload();" style="width: 20px; cursor: pointer; height: 18px; margin:0px 0px 5px 0px;" src="icon.png"/><br>
+	  <button title="Fullscreen preview: Ctrl+," onclick="click1()">&#60;</button><br> 
+	  <button title="Split view: Ctrl+m or Esc" onclick="click2()">|</button><br>
+	  <button title="Code view: Ctrl+." onclick="click3()">&#62;</button><br>
+	  <button title="Publish: Ctrl+Enter" id="submit">P</button>
+	  <br>
+	  <input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
+	</div>
+	<form name="publish" method="post" action="http://cdv.lt/">
+	  <textarea autofocus id="code" name="code_data"></textarea>
+	</form>
+    	<iframe height="99.5%" id="preview"></iframe>
+	<footer>v3.2 rev.<br><a href="http://mtthw.me">MN</a></footer>
+    <script>
+      var delay;
+      // Initialize CodeMirror editor with a nice html5 canvas demo.
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        mode: 'text/html',
+        tabMode: 'indent',
+		lineNumbers: true,
+  		lineWrapping: true,
+        onChange: function() {
+          clearTimeout(delay);
+          delay = setTimeout(updatePreview, 300);
+        }
+      });
+      
+      function updatePreview() {
+        var previewFrame = document.getElementById('preview');
+        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+        preview.open();
+        preview.write(editor.getValue());
+        preview.close();
+      }
+      setTimeout(updatePreview, 300);
+    </script>
+    <script>
+            (function() {
+
+            try {
+            (window.localStorage.getItem) // will throw in Firefox under some settings
+            } catch (e) {
+            return; // quit because dom.storage.enabled is false
+            }
+
+            var area = document.querySelector('#text');
+            // place content from previous edit
+            if (!area.value) {
+            area.value = window.localStorage.getItem('project');
+            }
+
+            // your content will be saved locally
+            document.querySelector('#text').addEventListener('keyup', function() {
+            window.localStorage.setItem('project', area.value);
+            }, false);
+            })();
+    </script>
+    <script>
+	editor.setOption("theme", "blackboard");
+	editor.setSize(null, "99.5%");
+	document.querySelector('.CodeMirror').addEventListener('keyup', function() {
+        	save();
+	}, false);
+	
+	document.querySelector('#submit').addEventListener('click', function() {
+		publish();
+	}, false);	
+	</script>
+  </body>
+</html>

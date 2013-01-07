@@ -7,3 +7,15 @@ CACHE:
 
 # make sure to get every file, it's probably a god ideal to use as few as possible
 old.html
+index.html
+codemirror/lib/codemirror.js
+codemirror/mode/xml/xml.js
+codemirror/mode/javascript/javascript.js
+codemirror/mode/css/css.js
+codemirror/theme/blackboard.css
+codemirror/mode/htmlmixed/htmlmixed.js
+codemirror/lib/codemirror.css
+codemirror/doc/docs.css
+hotkeys.js
+favicon.ico
+icon.png
