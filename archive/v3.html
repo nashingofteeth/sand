@@ -1,4 +1,4 @@
-<html lang="en" manifest="cache.appcache">
+<html>
 <!-- _  _ ___ _  _ _    ___ _ ____ -->
 <!-- |__|  |  |\/| |     |  | |___ -->
 <!-- |  |  |  |  | |___  |  | |___ -->
@@ -76,6 +76,15 @@
 	background-color: #000;
 	color: #fff;
 	}
+	#docTitle {
+	position: absolute;
+	bottom: 1px;
+	left:40%;
+	background: lightgrey;
+	padding: 0 5px 0 5px;
+	margin-left: -4px;
+	opacity: .5;
+	}
 	footer {
 	width: 20px;
 	font-size: 10px;
@@ -116,13 +125,6 @@ function calcHeight()
             document.querySelector('.CodeMirror').style.width = '40%';
             //hide('fullscreenOff');
             }
-            function click3() {
-			//fullscreen code view
-            show('.CodeMirror');
-            hide('#preview');
-            document.querySelector('.CodeMirror').style.width = '97.83%';
-            //show('fullscreenOff');
-            }
 
 		function publish() {
 			document.forms["publish"].submit();
@@ -147,9 +149,6 @@ function calcHeight()
                         shortcut.add("Ctrl+Enter",function() {
 			publish();
                         });
-                        shortcut.add("Ctrl+M",function() {
-                        click2();
-                        });
                         shortcut.add("Tab",function() {
                         document.getElementById('text').focus();
                         document.getElementById('text').select();
@@ -158,7 +157,7 @@ function calcHeight()
                         editor.focus();
                         });
                         shortcut.add("Ctrl+.",function() {
-                        click3();
+                        click2();
                         });
                         shortcut.add("Ctrl+,",function() {
                         click1();
@@ -167,10 +166,8 @@ function calcHeight()
   </head>
   <body onload="push()">
 	<div id="sidebar">
-	  <img onclick="location.reload();" style="width: 20px; cursor: pointer; height: 18px; margin:0px 0px 5px 0px;" src="icon.png"/><br>
 	  <button title="Fullscreen preview: Ctrl+," onclick="click1()">&#60;</button><br> 
-	  <button title="Split view: Ctrl+m or Esc" onclick="click2()">|</button><br>
-	  <button title="Code view: Ctrl+." onclick="click3()">&#62;</button><br>
+	  <button title="Split view: Ctrl+. or Esc" onclick="click2()">|</button><br>
 	  <button title="Publish: Ctrl+Enter" id="submit">P</button>
 	  <br>
 	  <input placeholder="Project..." title="Tab / Shift+Tab to return to textarea" id="text" type="text" onkeyup="push()"/>
@@ -178,8 +175,9 @@ function calcHeight()
 	<form name="publish" method="post" action="http://cdv.lt/">
 	  <textarea autofocus id="code" name="code_data"></textarea>
 	</form>
-    	<iframe height="99.5%" id="preview"></iframe>
-	<footer>v3.2 rev.<br><a href="http://mtthw.me">MN</a></footer>
+    <iframe height="99.5%" id="preview"></iframe>
+	<div id="docTitle"></div>
+	<footer>v3.8 rev.<br><a href="http://mtthw.me">MN</a></footer>
     <script>
       var delay;
       // Initialize CodeMirror editor with a nice html5 canvas demo.
@@ -234,6 +232,10 @@ function calcHeight()
 	document.querySelector('#submit').addEventListener('click', function() {
 		publish();
 	}, false);	
+	
+	/*setInterval(function() {
+		document.getElementById('docTitle').innerHTML = preview.document.title;
+	}, 300);*/
 	</script>
   </body>
 </html>
