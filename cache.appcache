@@ -12,10 +12,15 @@ codemirror/lib/codemirror.js
 codemirror/mode/xml/xml.js
 codemirror/mode/javascript/javascript.js
 codemirror/mode/css/css.js
-codemirror/theme/blackboard.css
+codemirror/theme/vibrant-ink.css
 codemirror/mode/htmlmixed/htmlmixed.js
 codemirror/lib/codemirror.css
 codemirror/doc/docs.css
+codemirror/lib/util/searchcursor.js
+codemirror/lib/util/match-highlighter.js
+codemirror/lib/util/dialog.js
+codemirror/lib/util/dialog.css
+codemirror/lib/util/search.js
 hotkeys.js
 favicon.ico
 icon.png
