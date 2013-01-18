@@ -1,1 +1,3 @@
-it works!
+<?php
+echo "it works!"
+?>
