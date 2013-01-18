@@ -1,0 +1,16 @@
+{
+  "name": "sand app",
+  "description": "HTML sandbox",
+  "version": "3",
+  "icons": { "24": "icon.png", "128": "icon.png" },
+  "app": {
+    "urls": [
+      "http://sandapp.webatu.com/"
+    ],
+    "launch": {
+      "web_url": "http://sandapp.webatu.com/"
+    }
+  },
+  "permissions": ["geolocation"],
+  "manifest_version": 2
+}
