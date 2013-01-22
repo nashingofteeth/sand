@@ -1,0 +1,131 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+I'd like to tell you about a change of address <a href=" http://ekesecudykea.bravejournal.com ">fifteen year old nudes</a>  wow, wish I were banged like this babe
+ <a href=" http://ogodaekor.bravejournal.com ">sex young preeteen</a>  why would someone post as anonymous after fucking her and not take credit
+ <a href=" http://eqyrigecaku.bravejournal.com ">underage leagle sex</a>  omg did u see how wet audrey got evas pussy
+ <a href=" http://iylolaqury.bravejournal.com ">teen nude model</a>  haha, she looks like a manga cartoon
+ <a href=" http://yquynodufad.bravejournal.com ">amatuer teen porn free</a>  Haha hootus you moron. Can't even tell the difference between real or fake tits.
+ <a href=" http://rakaqaqotonis.bravejournal.com ">innocent underage girls</a>  yeah one of my favorites! Add me girls!
+ <a href=" http://irecoukori.bravejournal.com ">free jamaican teen porn</a>  omg she is good, but im better
+ <a href=" http://buburareiu.bravejournal.com ">3d picture preteen</a>  Great fun, wish I was there to play with both the girls and guys.
+ <a href=" http://ukyrudidired.bravejournal.com ">nude underage sites</a>  dude's haircut is straight up from the bad guy in no country for old man
+ <a href=" http://oofejaseha.bravejournal.com ">young small girls</a>  Why are they playing Jay-Z in the background?
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

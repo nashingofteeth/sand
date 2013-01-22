@@ -1,0 +1,141 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+A company car <a href=" http://www.migente.com/haquaqaqi/ ">elweb toplist</a>  I dont like how the girl on the left side sucks the cock.
+ <a href=" http://kakytaid.healthkicker.com ">lolita s slutty preteens</a>  dam...thats so hot
+ <a href=" http://member.thinkfree.com/myoffice/download.se?fileIndex=8881975&downloadType=view ">underage latinas nude</a>  that guy can fuck.
+ <a href=" http://iyc.in/sns/pg/profile/fuapasa ">ls lolita nudist</a>  i would give up my left nut just to be in his position
+ <a href=" http://technorati.com/people/ludetygypi ">tiava domai</a>  very hot, i love when women do this, even better when your ass gets fingered
+ <a href=" http://iyc.in/sns/pg/profile/imituniej ">non nude preteen mdel</a>  wish I could have this one, damn son
+ <a href=" https://www.amazon.com/gp/pdp/profile/A3IPZWROZLOZWK ">Madthumbs</a>  wow she dont have small ones for a orean not to be racist like you white people -_-
+ <a href=" http://acyabylyhuja.springnote.com/pages/11310744 ">lolitas adultos que tetas</a>  fuckin weird dude....
+ <a href=" http://abodesody.posterous.com ">xxx little</a>  I mean... I'm straight and all, but im friggin turned on to this.
+ <a href=" http://www.asianave.com/ugetufosui628 ">pichunter model</a>  is it just me, or does everything that comes out of her mouth seem fabricated and fake as hell?
+ <a href=" http://my.wvva.com/service/displayKickPlace.kickAction?u=31678822&as=29414 "><h1>Little Lolita Pictures Free</h1></a>  hottest fucking video i have seen in a while
+ <a href=" http://clubs.halifaxcourier.co.uk/service/displayKickPlace.kickAction?u=32193677&as=76661 "><h1>Russian Lolita Thumbnail Pics</h1></a>  what an amazing pussy
+ <a href=" http://users5.nofeehost.com/aupylygyfuky/Gallery-lo-party-kds.html ">porn nude kds</a>  Lisa Ann is amazing!
+ <a href=" http://www.asianave.com/aufiqyje815 ">daddy's little girl by faith hill</a>  holy sheet i thot she was gonna bite it off
+ <a href=" http://nonviolencenetwork.com/node/203170 ">tera patrick mp3</a>  no better music to listen to
+ <a href=" http://technorati.com/people/cepyuqo ">pthc thai board bbs</a>  I wish my step mother was the same!
+ <a href=" http://nonviolencenetwork.com/node/162859 ">free young lolita thumbnails</a>  good ol screamo porn here
+ <a href=" http://member.thinkfree.com/myoffice/download.se?fileIndex=8913707&downloadType=view ">Pthc P2p</a>  i salute her. she is a godess.
+ <a href=" http://www.asianave.com/juniqejo219 ">Sara Jay Xvideos</a>  She is sooo hot, a little oversensitive though xD
+ <a href=" http://blog.bitcomet.com/post/571627 ">young nude model movie clips</a>  umm she moons so good
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

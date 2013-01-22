@@ -1,0 +1,141 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+Have you got any experience? <a href=" http://unisomogy.webblogg.se/ ">preteen gallery</a>  This could possibly be the best video of all time.
+ <a href=" http://www.crunchyroll.com/user/apifoiu ">slutload outdoor gangbang</a>  i wanna lick her ass too
+ <a href=" http://nonviolencenetwork.com/node/167960 ">young sex porn</a>  Maria Ozawa is it? one of my favs
+ <a href=" https://www.amazon.com/gp/pdp/profile/A3GOUT7EH0S96Q ">GAY UNDERAGE TEEN BOY NUDE PICS</a>  eww her pussy looked so weird during the middle of the video
+ <a href=" http://www.crunchyroll.com/user/iocydem ">marc o polo bikini</a>  first i love military
+ <a href=" http://www.box.net/shared/2g2p2811n0 ">girls butts preteen</a>  I wish every girl was down to fuck whomever whenever
+ <a href=" http://www.crunchyroll.com/user/asahulujij ">young racks and blacks real rich schefren vid vids sex toon sexe webcam</a>  is there anything like this in america????? damn.
+ <a href=" http://photozou.jp/user/top/2703603 ">young lolitas bbs pics</a>  Lisa Ann is soooo hot!!!
+ <a href=" http://yhuiragis.webblogg.se/ ">nude lolitas 12 14</a>  best treatment you can wish to get. love it!
+ <a href=" http://www.asianave.com/ofojuhuy207 ">bikini amateur by state</a>  christ!!! shes intense...
+ <a href=" http://ulocal.kcci.com/service/displayKickPlace.kickAction?u=32329650&as=62904 "><h1>Loli Child Ru Galleries</h1></a>  her name is paris kennedy
+ <a href=" http://www.asianave.com/kebapokipuqi918 ">Rape Sexe</a>  i wanna see that ass get pummeled
+ <a href=" http://nonviolencenetwork.com/node/180045 ">child models young girls cutie heavenly beautiful non nude unde</a>  Good to keep sex fresh and alive.
+ <a href=" http://technorati.com/people/gotuimue ">lolita erotic art galleries</a>  Please post more of her. If anyone has link with videos of Niina Shiori, please link ;)
+ <a href=" http://celuligeotoh.springnote.com/pages/11343232 ">lola preteen nude model</a>  this is pretty much going to be my night tonight ;-)
+ <a href=" http://blog.bitcomet.com/post/706691 ">members bikinipleasure com all</a>  Not really working though.
+ <a href=" http://nonviolencenetwork.com/node/205328 ">underage</a>  nice face fuck. ^_^
+ <a href=" http://dyikomokymic.springnote.com/pages/11313462 ">little young lolitas virgin</a>  Her Name Is Claudia Rossi
+ <a href=" http://technorati.com/people/pybyyreb ">thong models lolita pre teen</a>  -wow    This is just great
+ <a href=" http://diabetescommunity.dlife.com/akeuogehuq ">Preteen Tgp</a>  OMG...I came soooo many times watching this..i can barely type this now... WHO is the guy?
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

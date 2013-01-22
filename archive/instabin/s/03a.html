@@ -1,0 +1,142 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+
+I'm on a course at the moment <a href=" http://olodoiik.de.tl ">little models girl</a>  This is an epic ass! Plump and juicy
+ <a href=" http://okisigeyf.yolasite.com ">xxnx pornstars</a>  hmmm.........liked it
+ <a href=" http://pekugypegifi.de.tl ">xxx little bbs</a>  that dick is AMAZING
+ <a href=" http://rebulyroqike.bloguez.com/ ">kiddy preteen nymphet</a>  his cock is so yummy
+ <a href=" http://www.xfire.com/blog/ycyioroc/2486449 ">Underage Models Girls At Home</a>  Perfect black asshole man I love skyy
+ <a href=" http://yjiliqoqi.pornlivenews.com ">underage child pussy</a>  you ain't the finest of any town wit fat titys and more thighs than ass
+ <a href=" http://www.seriouseats.com/user/profile/ipisesyudiu ">Pthc Anal</a>  This was when she looked better before she got some kind of lipo
+ <a href=" http://edufire.com/users/145739 ">semi nude lolita models</a>  i seen big dicks on house cats
+ <a href=" http://yjolibuahuq.insanejournal.com ">Lolita Top Sites</a>  Now this is the kinda lez clips i wanna c.
+ <a href=" http://pamadyyjyg.de.tl ">ilegal preteen galleries</a>  yea shes def Israeli. hot as fuck too
+ <a href=" http://usikyleqikipa.yolasite.com ">son sperm in mom sextube</a>  THIS SUBMITTER WORKS FOR THEM BAN THEM
+ <a href=" http://ytytaekibyr.de.tl ">board 3 cgiworld dreamwiz</a>  those arn't tits thats fat
+ <a href=" http://community.momlogic.com/profile/minenifo ">nn tgp</a>  The boy is stupid. The girls are fantastic
+ <a href=" http://moodle.irrelombardia.it/user/view.php?id=15647&course=1 ">lolita nymphet laika</a>  That. Was. AWESOME!
+ <a href=" http://iuukecen.de.tl ">Sandra Model Mudbath</a>  Creampies are the best
+ <a href=" http://edufire.com/users/149156 ">3d models textures</a>  wow cum starved whores love it
+ <a href=" http://obahosor.forum24.se ">teeny model toplist</a>  where is the child molester?
+ <a href=" http://community.momlogic.com/profile/ideteil ">adorable nymphet pics</a>  That there's real what?!?! Tell me!!!
+ <a href=" http://www.epractice.eu/en/people/166562/professional ">tahari lolita dress</a>  Nadia was so hot that I was totally willing to overlook her roast beef curtains. Bitch also gives great cumshot.
+ <a href=" http://www.seriouseats.com/user/profile/isaqomogefyha ">Young Model</a>  would love to invite this chick to my party
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

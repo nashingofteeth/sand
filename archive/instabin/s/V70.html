@@ -1,0 +1,367 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+<table width="100%" bgcolor="white">
+	<td align="center" valign="top" width="960">
+	<img src="http://i1054.photobucket.com/albums/s500/Silvia_Tejeda/RecruitingHeader.png" width="960" height="179">
+
+	<br>
+	
+	
+	
+	<font size="6" face="arial"><b>Rapid Realty Career Center</b></font>
+	
+	<br>
+	<img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="500" height="16">
+
+	<br>
+	
+		
+	<br>
+	<table><td valign="top" align="center" width="800">
+	
+	<font size="4" face="arial">Have you ever wondered what a career in Real Estate would be like? Or maybe you just want some flexibility in your schedule while you pursue your passion. Either way, you've come to the right place. Take some time to peruse our Career Center to see if Rapid Realty is right for you. Let's be honest, Real Estate isn't for everyone, but if you're a hard worker and are willing to learn, we can teach you what you need to know in order to be successful in this industry. From your first day as an agent to owning your own Rapid Realty office, we have people there to teach you every step of the way. Once you are ready, click the "Apply Now" link below. We'll be conducting interviews this week!
+	
+	<br><br>
+	
+	<a href="https://rapidopportunities.recruiterbox.com/jobs/8725"_blank" rel="nofollow">
+
+	<img src="http://i1054.photobucket.com/albums/s500/Silvia_Tejeda/apply-now.png" width="145" height="145">
+	</a>
+	</font><br><br></td></table>
+	
+	<img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="900" height="16">
+
+	<br><br><br>
+	
+	<center><font size="5" face="arial"><b>
+	Why Work for Rapid?
+	</b></font><br><img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="300" height="16"><br><br></center>
+
+	
+	
+	<table>
+	
+	
+	<tr align="center">
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>FREE Real Estate School</b></font><br>
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/RealEstateSchool.jpg" width="250" height="166">
+
+	<br>
+	<font size="3" face="arial">To work as a Real Estate Salesperson, you need to be certified by the State of New York. This process takes two to three weeks, and if you work for us, we'll pay for your real estate education classes!</font>
+	</td>
+	
+	<td width="20"></td>
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>Best Training in the Industry</b></font><br>
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/2012SalesInitiativeBirdsEye.jpg" width="250" height="166">
+
+	<br>
+	<font size="3" face="arial">We're obsessive about support and training. Rapid agents attend regular training seminars to ensure that all of our agents know the latest strategies and techniques. No secrets - We teach success!</font>
+	</td>
+	
+	<td width="20"></td>
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>Earn Competitive Commissions</b></font><br>
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/ShowMeTheMoneyPSn.jpg" width="250" height="166">
+
+	<br>
+	<font size="3" face="arial">At Rapid, our process is different. You just have to show apartments -- no listing, no closing. We make it easy for you to succeed!
+	</font>
+	</td>
+	
+	</tr></table>
+	
+	
+	<br>
+	
+	
+	<table><tr align="center">
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>Join a Team People Recognize</b></font><br>
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/LolliMarty.jpg" width="250" height="166">
+
+	<br>
+	<font size="3" face="arial">Rapid Realty closes hundreds of deals every month. We have thousands of website visitors every day, and dozens of billboards all over town. People know our name, and when they're ready to move, they come to us first. It's a lot easier to rent apartments when the leads are calling you.</font>
+	</td>
+	
+	<td width="20"></td>
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>We're Big and Getting Bigger</b></font><br>
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/EastVil250x166.jpg" width="250" height="166">
+
+	<br>
+	<font size="3" face="arial">With offices all over NYC, Rapid Realty is already one of the biggest names in town, but now we're getting even bigger. Rapid Realty is now franchising itself into locations all over the nation! When you join Rapid, you're joining a huge network with real Brand Power!</font>
+	</td>
+	
+	<td width="20"></td>
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>Become a Franchisee</b></font><br>
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/WindsorInside.jpg" width="250" height="166">
+
+	<br>
+	<font size="3" face="arial">Rapid Realty began franchising just over 2 years ago and has since grown to over 50 offices throughout NYC. If you have ever considered owning your own business, then come join other like-minded entrepreneurs and start climbing your way to the top.</font>
+	
+	</td>
+	
+	
+	</tr></table>
+	
+	
+	
+	<br><br>
+	<img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="900" height="16">
+
+	<br><br><br>
+	
+	<center><font size="5" face="arial"><b>
+	Watch These Videos
+	</b></font><br><img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="300" height="16"><br><br></center>
+
+	
+	
+	<table><tr align="center">
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>The Leader in Rentals</b></font><br>
+	<a href="http://www.youtube.com/watch?v=_NMm2-Zj1d4" target="_blank" rel="nofollow">
+
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/TheLeaderinRentals.jpg" width="250" height="166">
+
+	</a>
+	<br>
+	<font size="3" face="arial">Instead of telling you, let us show you who we are.</font>
+	</td>
+	
+	<td width="20"></td>
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>Hands-On Training</b></font><br>
+	<a href="http://www.youtube.com/watch?v=47tKzDWk8O0" target="_blank" rel="nofollow">
+
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/RapidRealtyBalloons.jpg" width="250" height="166">
+
+	</a>
+	<br>
+	<font size="3" face="arial">Watch our Chief Operating Officer, Carlos Angelucci, explain how our training is better than the rest.</font>
+	</td>
+	
+	<td width="20"></td>
+	
+	
+	<td valign="top" align="center" width="280" height="250">
+	<font size="4" face="arial"><b>Show Me The Money!</b></font><br>
+	<a href="http://www.youtube.com/watch?v=cc3MgXxjXi4" target="_blank" rel="nofollow">
+
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/RapidPuzzlePic.jpg" width="250" height="166">
+
+	</a>
+	<br>
+	<font size="3" face="arial">So, is anyone really making any money? We'll let our agents do the talking.</font>
+	</td>
+	
+	
+	</tr></table>	
+	
+	<br><br>
+	<img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="900" height="16">
+
+	<br>	
+	
+	<table><td valign="top" align="center" width="800">
+	
+	<center><font size="5" face="arial"><b>
+	<br> Frequently Asked Questions
+<br><img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="400" height="16"><br><br></center>
+
+<a href="http://dl.dropbox.com/u/2385155/Recruiting%20Ad/FAQ.pdf.pdf" target="_blank" rel="nofollow">
+
+<img src="http://i1054.photobucket.com/albums/s500/Silvia_Tejeda/faq.jpg" width="145" height="145"><br>
+Click Here
+</a>
+	</b></font>
+	
+	
+	<br>
+	<img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="900" height="16">
+
+	<br><br><br>
+	
+	
+	<center><font size="5" face="arial"><b>
+	Visit Us Online
+	</b></font><br><img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="200" height="16"><br><br></center>
+
+	<table>
+	
+	
+	<tr align="center">
+	
+	<td align="center">
+	
+	<a href="http://www.rapidnyc.com" target="_blank" rel="nofollow">
+
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/RapidLogoIcon.png" width="47" height="47">
+
+	</a>
+	</td>
+	
+	<td width="20"></td>
+	
+	<td align="center">
+	<a href="http://www.facebook.com/rapidrealty" target="_blank" rel="nofollow">
+
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/Facebook-IconGray.png" width="50" height="50">
+
+	</a>
+	</td>
+	
+	
+	<td width="20"></td>
+	
+	<td align="center">
+	<a href="http://www.twitter.com/rapidrealtynyc" target="_blank" rel="nofollow">
+
+	<img src="http://i885.photobucket.com/albums/ac59/lmootz/Twitter-IconGray.png" width="50" height="50">
+
+	</a>
+	</td>
+	
+	</tr></table>
+	
+	<br><br>
+	<img src="http://www.rapidnyc.com/img/grassSky/nav-bar.png" width="900" height="16">
+
+	<br><br><br>
+	<a href="https://docs.google.com/spreadsheet/embeddedform?formkey=dHI4TFRsWE9IQ1hoTjNvOEw3QktKR3c6MQ#gid=0" target="_blank" rel="nofollow">
+
+	<img src="http://i1054.photobucket.com/albums/s500/Silvia_Tejeda/apply-now.png" width="145" height="145">
+
+	</a>
+	<br>
+	
+	<img src="http://www.rapidnyc.com/img/grassSky/buildings.jpg" width="960" height="179"></textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

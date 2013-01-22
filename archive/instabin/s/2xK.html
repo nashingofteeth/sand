@@ -1,0 +1,141 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+Who do you work for? <a href=" http://member.thinkfree.com/myoffice/download.se?fileIndex=7198020&downloadType=view ">underground preteens</a>  flawless tits ... nice vid
+ <a href=" http://www.box.net/shared/6ncr3x6iur ">young models lolita nn</a>  one of the best videos ive ever seen and trust me i seen a lot of porn movies
+ <a href=" http://member.thinkfree.com/myoffice/download.se?fileIndex=8888583&downloadType=view ">Loli Rape</a>  what an awesome clip heheheh shes HOT
+ <a href=" http://nusehelobab.beep.com ">Free Top Preteen Lolita</a>  He must starve himself before scenes cause he eats pussy like John Goodman at Thanksgiving.
+ <a href=" http://www.asianave.com/opytocifesu571 ">small loli bbs</a>  she makes me so horny i just cant stop fingering my self
+ <a href=" http://member.thinkfree.com/myoffice/download.se?fileIndex=8805997&downloadType=view ">nude lolitas thumbnails child</a>  add bang the life out this bitch !!
+ <a href=" http://www.crunchyroll.com/user/fuabobu ">untouched virgin pussy</a>  Her name is Candy.
+ <a href=" http://www.crunchyroll.com/user/erodicyhim ">pornhub mindy vgea</a>  Hey!  That's not normal!
+ <a href=" http://resakoryla.webblogg.se/ ">fantasy virgin sex</a>  This girl would be so much hotter if she got a boob job!
+ <a href=" http://nonviolencenetwork.com/node/151886 ">top lolita cp site</a>  ho ly shit her tits are huge i wanna be that lucky fucker
+ <a href=" http://www.crunchyroll.com/user/baekibisa ">nn preteen model photo art</a>  oopps its called brown hole no hair
+ <a href=" http://member.thinkfree.com/myoffice/download.se?fileIndex=8840786&downloadType=view ">known russian gay scammers</a>  hello iam online sexy girl
+ <a href=" http://diabetescommunity.dlife.com/igakojamamufy ">preteen pussies pics</a>  i wanna be her baillift
+ <a href=" http://nonviolencenetwork.com/node/204464 ">lolita paysites</a>  Excellent collection
+ <a href=" http://fupakojiba.espacioblog.com ">nymphet porn hentai</a>  hmmm.........liked it
+ <a href=" http://www.box.net/shared/3rezvdmu4b ">preteenimages</a>  LAMI I KIJUD NA
+ <a href=" https://www.amazon.com/gp/pdp/profile/A1UV1CB028MU5M ">Frogsex</a>  one of the best girls on pornhub......
+ <a href=" https://www.amazon.com/gp/pdp/profile/A22WEQ7I0ISOW4 ">Xhamster X Videos</a>  i want him in my pants nowwwww(:
+ <a href=" http://technorati.com/people/reytihel ">tube8 monica sweet</a>  very nice and hottest movie
+ <a href=" http://yfitagutoudy.sweetcircles.com/ ">lolita rape and torture</a>  who the fuck is this chick she's mad hot yo
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

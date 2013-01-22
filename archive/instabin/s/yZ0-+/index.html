@@ -1,0 +1,189 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="http://dl.dropbox.com/u/7984474/projects/instabin/shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='http://dl.dropbox.com/u/7984474/projects/instabin/style.css' rel='stylesheet' type='text/css'>
+		<link href="http://dl.dropbox.com/u/7984474/projects/instabin/favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+			show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			shortcut.add("Ctrl+Enter",function() {
+
+            document.code.submit();
+
+            });
+			shortcut.add("Esc",function() {
+
+            click2();
+
+            });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="http://mtthw.me/instabin/save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here..."><!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+
+  <title>mtthw/Instabin @ GitHub</title>
+
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #477a90;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      color: #ffffff;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    h1 { font-size: 3.8em; color: #b8856f; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; color: #b8856f; }
+    h3 { text-align: center; color: #b8856f; }
+    a { color: #b8856f; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/mtthw/Instabin"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="https://github.com/mtthw/Instabin/zipball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/mtthw/Instabin/tarball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="https://github.com/mtthw/Instabin">Instabin</a>
+      <span class="small">by <a href="https://github.com/mtthw">mtthw</a></span></h1>
+
+    <div class="description">
+      HTML Heaven
+    </div>
+
+    
+      <p>Instabin is a mix between jsFiddle, PasteHTML, CSS Pivot, CodeAnywhere, and HTML Instant.</p>
+    
+
+    
+
+    
+
+    
+
+    
+      <h2>Authors</h2>
+      <p>Matthew Nash (nashma4@gmail.com)
+<br/>      </p>
+    
+
+    
+      <h2>Contact</h2>
+      <p>Matthew Nash (nashma4@gmail.com)
+<br/>      </p>
+    
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="https://github.com/mtthw/Instabin/zipball/master">zip</a> or
+      <a href="https://github.com/mtthw/Instabin/tarball/master">tar formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/mtthw/Instabin</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="https://github.com/mtthw/Instabin">mtthw/Instabin</a>
+    </div>
+
+  </div></textarea>
+		</form>
+		<div id="footer">
+			<div onclick="window.location = 'http://mtthw.me/instabin'" id="head">Instabin</div>
+            <button id="fullscreenOff" onclick="click2()">X</button>
+			<a href="http://mtthw.me/instabin/help.html"><button type="submit" onclick="help()" title="Help">?</button></a>
+			<!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+			<button onclick="document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

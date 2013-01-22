@@ -1,0 +1,131 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+What's the last date I can post this to  to arrive in time for Christmas? <a href=" http://eruhaamohife.blog.petitmallblog.jp/ ">young lolitas in thong</a>  um...scary. really. one girl and about million dudes.
+ <a href=" http://takodedyhotu.blog.petitmallblog.jp/ ">www loli kds com</a>  WTF?  He should have saved up some sperm for her.  He should be totally embarrassed by that cumshot.
+ <a href=" http://fufuqifelora.blog.petitmallblog.jp/ ">nude little lolita bbs</a>  idk about anyone else, but i couldnt stop lauding at the tan lines, those are just too extreme hahah
+ <a href=" http://onikijoeka.blog.petitmallblog.jp/ ">7yo lolita images nonudes</a>  wow awesome love the veges
+ <a href=" http://yruqoqosano.blog.petitmallblog.jp/ ">free loli videos galeri</a>  id kill to be able to put my meat in her she can wit the best of em!
+ <a href=" http://iremaqefiqoro.blog.petitmallblog.jp/ ">top nude pre lolita</a>  GODDAMN!! She is fucking hot..
+ <a href=" http://nyqycogueky.blog.petitmallblog.jp/ ">bbs lolita and preteen</a>  Diane?????? Diane S??????  I see you lost a few pounds!! You go girl(s)
+ <a href=" http://iboqytybokim.blog.petitmallblog.jp/ ">lolita free nude pictures</a>  Enough with the tease already. She needs to shut up and fuck.
+ <a href=" http://unyoboiceje.blog.petitmallblog.jp/ ">best lolita paysites xxx</a>  Omg where do I get one of those? That's so fucking hot I wanna try it.
+ <a href=" http://bumosusejehog.blog.petitmallblog.jp/ ">teen preteen lolitas nymphets</a>  find a video here called 'hot amateur blowjob and swallow' to see another bj from this same girl.
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

@@ -1,0 +1,189 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+
+<!DOCTYPE >
+<head>
+  <title></title>
+ <style type="text/css"><!--
+/* NAV - top horizontal nav */
+	#nav li.noli {color:#fff; padding: 4px 10px 2px}    
+	#nav li.noli:hover {color:#000}                     
+	         
+	#nav, #nav ul {padding: 0;margin: 0;list-style: none}
+	#nav {font-weight:bold;height:2.09em;font: 96% arial;letter-spacing: 1px;margin: 0 105px 0 40px}
+	#nav li {position:relative;background: #999;float: left;width: 10em;display:block;margin: 0;
+	         border-bottom: 3px solid #666;border-right: 3px solid #252525;padding:0}
+	#nav a, #nav a:link, #nav a:visited, #nav a:hover, #nav a:active {
+	  text-decoration:none;cursor:pointer;color:#fff;display: block;padding: 4px 10px 2px}
+	#nav a:hover {color:#000}
+	
+	#nav li ul {border-left: 1px solid #c00;background: #f6f6f6 url("images/featurebox_bg.gif") no-repeat 100% 100%;
+	            width:15.8em;font-size:90%;margin-top:3px;position: absolute;font-weight:normal} 
+	#nav li:hover ul, #nav li.sfhover ul {left: 0;z-index:99999}
+	
+	#nav li li {background:none;float:none;border:none;border: 1px solid #999;border-top:1px solid #fff;
+	            border-right:none;border-left:none;padding-left:0}
+	#nav li li.last {border-bottom:none}
+	#nav li li a, #nav li li a:link, #nav li li a:visited, #nav li li a:hover {color:#000;padding: 3px 10px 2px;width:14em}
+	#nav li li a:hover {color:#fff;background:#c00}
+
+	#nav li.active {background: #c00;border-bottom: 3px solid #c00}
+	#nav li.active ul {border:none;background: #c00 url("images/featurebox2_bg.gif") no-repeat 100% 100%}
+	#nav li.active a:link, #nav li.active a:visited, #nav li.active a:hover, #nav li.active a:active {}
+	#nav li.active a:hover {color:#000}
+	
+	#nav li.active li {border:none;border-top: 1px solid #c15c5c;border-bottom: 1px solid #870000}
+	#nav li.active li.last {border-bottom: none}
+	#nav li.active li a:link, #nav li.active li a:visited, #nav li.active li a:hover, #nav li.active li a:active {color:#fff}
+	#nav li.active li a:hover {background: #666 url("images/sprites.gif") repeat-x 0 99%;color:#fff}
+	
+	#nav li.active li.active a:link, #nav li.active li.active a:visited, #nav li.active li.active a:hover, 
+	#nav li.active li.active a:active {color:#fff;font-weight:bold;background: #666 url("images/sprites.gif") repeat-x 0 99%}
+
+	/* hide from IE mac \*/
+	#nav li {width:auto}
+	/* end hiding from IE5 mac */
+
+--></style>
+</head>
+
+<body>
+ 
+<ul id="nav"  class="dropdown">
+  <li class="active"><a href="index.html">ERP rendszer</a></li>
+  <li class="noli">Adatkezelés
+  <ul>
+  <li><a href="biztonsagi-mentes.html">Biztonsági mentés</a></li>
+  <li class="last"><a href="adatkezelesi-szabalyzat.html">Adatkezelési szabályzat</a></li>
+  </ul> </li>
+  <li class="noli">Ügyviteli folyamatok
+  <ul>
+  <li><a href="leltarozas.html">Leltározás</a></li>
+  <li class="last"><a href="raktari-helykodok.html">Raktári helykódok</a></li>
+  </ul> </li>
+  <li class="noli">Webes megjelenés
+  <ul>
+  <li class="last"><a href="ceges-weblap.html">Céges weblap</a></li>
+  </ul> </li>
+</ul>
+
+</body>
+</html></textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

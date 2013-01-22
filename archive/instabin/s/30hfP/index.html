@@ -1,0 +1,146 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="http://dl.dropbox.com/u/7984474/projects/instabin/shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='http://dl.dropbox.com/u/7984474/projects/instabin/style.css' rel='stylesheet' type='text/css'>
+		<link href="http://dl.dropbox.com/u/7984474/projects/instabin/favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+			show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			shortcut.add("Ctrl+Enter",function() {
+
+            document.code.submit();
+
+            });
+			shortcut.add("Esc",function() {
+
+            click2();
+
+            });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="http://mtthw.me/instabin/save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here..."><html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en-US"><head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gospel Outreach — Introducing People to Jesus in the 10/40 Window</title>
+<meta name="description" content="Introducing People to Jesus in the 10/40 Window">
+<meta name="robots" content="noodp,noydir">
+<link rel="Shortcut Icon" href="http://goaim.org/wordpress/wp-content/themes/go/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://goaim.org/wordpress/wp-content/themes/go/style.css" type="text/css" media="screen">
+</head>
+<body class="home blog header-image content-sidebar hasGoogleVoiceExt">
+<div id="wrap">
+<div id="header"><div class="wrap"><div id="title-area"><h1 id="title"><a href="http://goaim.org/" title="Gospel Outreach">Gospel Outreach</a></h1><p id="description">Introducing People to Jesus in the 10/40 Window</p></div><!-- end #title-area --><div class="widget-area"><div id="text-4" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"></div>
+		</div></div>
+</div><!-- end .widget-area --></div><!-- end .wrap --></div><!--end #header-->			<!-- end .featured-home-header -->
+<div id="nav"><div class="wrap"><div id="menu-main-nav" class="menu menu-primary" style="margin: 15px; color: #A2C9D8;">Control Panel</div></div><!-- end .wrap --></div><div id="inner">
+<div id="content-sidebar-wrap" style="height: 66%;">
+<center>
+<table width="200" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><p><a href="http://goi.bmt.tv/pm/v1/"><img src="http://goi.bmt.tv/site/v1/images/pm.jpeg" width="300" height="242" alt="Project management" /></a></p>
+      <p><a href="dfgdfgfdgf">Project Management</a></p></td>
+    <td align="center"><p><a href="http://storage1.bmt.tv/"><img src="http://goi.bmt.tv/site/v1/images/data_exange.jpeg" width="265" height="254" alt="Data Exchange" /></a></p>
+      <p><a href="fghfghfgh">Data Exchange System</a></p></td>
+  </tr>
+  <tr>
+    <td align="center"><p><br />
+      <br />
+      <img src="http://goi.bmt.tv/site/v1/images/cdn-globe.jpeg" width="220" height="150" /></p>
+      <p>Content Delivery Network / Streaming<br />
+      </p></td>
+    <td align="center"><p><a href="http://goi.bmt.tv/support/v1/"><img src="http://goi.bmt.tv/site/v1/images/support.jpeg" width="360" height="132" alt="Support" /></a></p>
+      <p><a href="http://goi.bmt.tv/support/v1/">Technical Support</a> / <a href="http://goi.bmt.tv/support/v1/admin/">Administration</a></p>
+      <p><a href="https://bmtv.zendesk.com/home">BMT Support Center</a></p></td>
+  </tr>
+</table>
+</center>
+		<!-- end #content -->
+</div><!-- end #content-sidebar-wrap -->
+
+</div><!-- end #inner --><div id="footer" class="footer"><div class="wrap"><div class="gototop"><p><a href="#wrap" rel="nofollow">Return to top of page</a></p></div><div class="creds"><p>© 2012 Gospel Outreach</p></div><div id="text-8" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><a href="http://www.goaim.org">Home</a> | <a href="../?p=3">About Us</a> | <a href="../?p=38">Contact</a></div>
+		</div></div>
+</div><!-- end .wrap --></div><!-- end #footer -->
+</div><!-- end #wrap -->
+
+
+
+</body></html></textarea>
+		</form>
+		<div id="footer">
+			<div onclick="window.location = 'http://mtthw.me/instabin'" id="head">Instabin</div>
+            <button id="fullscreenOff" onclick="click2()">X</button>
+			<a href="http://mtthw.me/instabin/help.html"><button type="submit" onclick="help()" title="Help">?</button></a>
+			<!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+			<button onclick="document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

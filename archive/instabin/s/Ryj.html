@@ -1,0 +1,141 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+I've only just arrived <a href=" http://ylisisykasi.posterous.com ">Preteen Nymphets</a>  GREATEST COLLECTION OF FAVORITES ON MY CHANNEL
+ <a href=" http://www.xfire.com/blog/jegiacaqui/2501330 ">Underage Machines Wife</a>  she is not sexy at all... i dont get why u ppl like it.
+ <a href=" http://www.metroflog.com/yytofypo/profile ">Hussyfan Pthc Vicky 69</a>  he should be a pornstar
+ <a href=" http://uleogafuge.de.tl ">Max Lolita Bbs</a>  those partys are fake as fuck,its allways the same guy fuckin (of course a porn actor)
+ <a href=" http://akuqirotu.blogg.se/ ">Teen Jr Toplist</a>  Couldn't stop laughing, it was fake funny haha
+ <a href=" http://himeroany.pornlivenews.com ">young breast implants</a>  suns about to set, and im about to come. gosh darnit this man has a way with words
+ <a href=" http://laufadyfy.xanga.com ">Nude Lolitas</a>  blonde is ryan conner she have a very nice ass
+ <a href=" http://www.gameinformer.com/members/poolesyy/default.aspx ">lolita little sucker</a>  too bad the boy is straight,,he would be great to see with another hot guy
+ <a href=" http://odykeakopan.yolasite.com ">mexican big boobs tubes</a>  Damn that was pretty good...
+ <a href=" http://www.epractice.eu/en/people/184490/professional ">sun bbs toplist</a>  lol mattaym, i think you really dig this vid
+ <a href=" http://uququrojuj.yolasite.com ">love daddy porntube</a>  when dudes get off over tiny ass chicks like this, its paedo like
+ <a href=" http://www.metroflog.com/suqieqeju/profile ">lolita japanese schoolgirl rape</a>  her pussy is impeccable
+ <a href=" http://community.westcoastsurfmag.com/service/displayKickPlace.kickAction?u=34083437&as=2885 ">very young lolita hardcore</a>  Dude must've been pregaming or something with nothing to nut. Where the hell did her other nipple piercing go?
+ <a href=" http://guestbooks.pathfinder.gr/read/akedomaqojen ">cum nymphet</a>  She really goes for it, hot.
+ <a href=" http://pukenyegob.yolasite.com ">hot moms seducing younger teens</a>  i'm with fasttimes down there..shes bangin!
+ <a href=" http://ageatie.page.tl ">Pedo Pay Sites</a>  perfect ass perfect bush
+ <a href=" http://mufabyqojo.blogg.se/ ">gay teens from belarus</a>  the ass of that girl wasn't ready for that size of dicks
+ <a href=" http://riyhaohi.bloguez.com/ ">underage underwear gallery</a>  whats the name of the girl shes so fking hott
+ <a href=" http://fakykugi.forum24.se ">pussy bikini activity</a>  nice girl i love to fuck them
+ <a href=" http://fufiasikaer.overblog.com/preteen-sex-pics ">Preteen Sex Pics</a>  wow Once Again That Chick Look Like Chris Mom From Everybody Hates Chris
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

@@ -1,0 +1,566 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="http://dl.dropbox.com/u/7984474/projects/instabin/shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='http://dl.dropbox.com/u/7984474/projects/instabin/style.css' rel='stylesheet' type='text/css'>
+		<link href="http://dl.dropbox.com/u/7984474/projects/instabin/favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+			show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			shortcut.add("Ctrl+Alt+S",function() {
+
+            document.code.submit();
+
+            });
+			shortcut.add("Esc",function() {
+
+            click2();
+
+            });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="http://mtthw.me/instabin/save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here..."><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+  <head>
+   <!--asako delete-- Lang -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="ja" />
+    <!-- /Lang -->
+    <title>TBS SERVICE WEB</title>
+    <!-- Copyright -->
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="Author" content="TBS SERVICE, Inc." />
+    <meta name="Copyright" content="Copyright 2001-2009, TBS SERVICE, Inc. All Rights Reserved." />
+    <link rev="made" href="mailto:company@tbss.co.jp" />
+    <!-- /Copyright -->
+    <!-- Alternative Version -->
+    <link rel="alternate" hreflang="en" title="English version" href="english/index.html" />
+    <!-- /Alternative Version -->
+    <!-- Config -->
+    <meta name="robots" content="INDEX, FOLLOW" />
+    <meta name="revisit_after" content="21 days" />
+    <meta name="rating" content="general" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta http-equiv="imagetoolbar" content="false" />
+    <!-- /Config -->
+    <!-- Navigation -->
+    <link rel="start" href="index.html" />
+    <link rel="contents" href="index.html" />
+    <link rel="index" href="sitemap/index.html" />
+    <link rel="copyright" title="" href="terms/index.html" />
+    <!-- /Navigation -->
+    <!-- CSS -->
+    <link href="css/public.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Shared CSS -->
+    <link href="css/regularpage.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- /Shared CSS -->
+    <!-- Local CSS -->
+    <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Local CSS -->
+    <!-- /CSS -->
+    <!-- JS -->
+    <!-- Shared JS -->
+    <script type="text/javascript">
+		<!--//<![CDATA[
+			var siteRootPath = "./";
+		//]]>-->
+		</script>
+    <script type="text/javascript" src="js/public/sniffer.js"></script>
+    <script type="text/javascript" src="js/public/array.js"></script>
+    <script type="text/javascript" src="js/public/multipleimage.js"></script>
+    <script type="text/javascript" src="js/public/document.js"></script>
+    <script type="text/javascript" src="js/public/broadcaster.js"></script>
+    <script type="text/javascript" src="js/public/window.js"></script>
+    <script type="text/javascript" src="js/public/navigation.js"></script>
+    <script type="text/javascript" src="js/local/header.js"></script>
+    <script type="text/javascript" src="js/local/footer.js"></script>
+    <script type="text/javascript" src="popup/js/popupwindow.js"></script>
+    <!-- /Shared JS -->
+
+	<!-- /asako insert ↓-->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+        <script type="text/javascript" src="js/slide/jquery.cycle.js"></script>
+        <script type="text/javascript" src="js/slide/slideshow.js"></script>
+        <link rel="stylesheet" href="css/slideshow.css" type="text/css" media="screen" />        
+	
+	
+	<!-- /asako insert ↑-->
+	
+<script type="text/JavaScript">
+image = new Image();
+image.src="animated_favicon1.gif";
+</script>		
+	
+	<link rel="shortcut icon" href="animated_favicon1.gif" type="image/gif">
+  
+  
+  
+  </head>
+  <body>
+    <!-- Menu Skipper --> <a href="#contents" id="skipper" name="skipper">ナビゲー
+      ションを飛ばして内容を表示する。</a>
+    <!-- /Menu Skipper -->
+    <!-- Title -->
+		<div id="title">
+			<h1><a title="TBS SERVICE WEB トップページ" href="index.html" ><img alt="TBS SERVICE" src ="images_public/title01.gif" width="444" height="69" ></a></h1>
+	
+			<p><img alt="" src ="images_public/title01_small_bg.gif"
+			height="69"  width="337" ></p>
+		</div>
+	
+	
+	
+	
+    <!-- /Title -->
+    <!-- Menu -->
+    <ul id="menu">
+      <li><a href="index.html" name="menu_top" id="menu_top" title="TBS SERVICE WEB トップページ"><img
+
+            width="149" height="20" src="images_public/navigation/top.gif" alt="TOP" /></a></li>
+      <li><a href="profile/index.html" name="menu_profile" id="menu_profile" title="TBSサービスとは"><img
+
+            width="148" height="20" src="images_public/navigation/profile.gif" alt="TBSサービスとは" /></a>
+        <ul class="submenu" id="submenu_profile">
+          <li><a href="profile/index.html" title="事業内容"><img width="148" height="20"
+
+                src="images_public/navigation/profile_goaisatsu.gif" alt="事業内容" /></a></li>
+        </ul>
+      </li>
+      <li><a href="services/event/index.html" name="menu_service" id="menu_service"
+
+          title="サービス内容"><img width="148" height="20" src="images_public/navigation/service.gif"
+
+            alt="サービス内容" /></a>
+        <ul class="submenu" id="submenu_service">
+          <li><a href="services/event/index.html" title="イベントプロデュース"><img width="148"
+
+                height="20" src="images_public/navigation/service_event.gif" alt="イベントプロデュース" /></a></li>
+          <li><a href="services/av/index.html" title="映像音響制作"><img width="148" height="20"
+
+                src="images_public/navigation/service_av.gif" alt="映像音響制作" /></a></li>
+          <li><a href="services/av/index.html#dubbing" title="ダビング制作"><img width="148"
+
+                height="20" src="images_public/navigation/service_dubbing.gif" alt="ダビング制作" /></a></li>
+          <li><a href="services/print/index.html" title="印刷企画制作"><img width="148"
+
+                height="20" src="images_public/navigation/service_print.gif" alt="印刷企画制作" /></a></li>
+          <li><a href="services/publish/index.html" title="出版事業"><img width="148"
+
+                height="20" src="images_public/navigation/service_publish.gif" alt="出版事業" /></a></li>
+          <li><a href="services/program/index.html" title="番組販売"><img width="148"
+
+                height="20" src="images_public/navigation/service_program.gif" alt="番組販売" /></a></li>
+          <li><a href="services/contents/index.html" title="コンテンツ企画制作"><img width="148"
+
+                height="20" src="images_public/navigation/service_contents.gif"
+
+                alt="コンテンツ企画制作" /></a></li>
+          <li><a href="services/technology/index.html" title="放送技術"><img width="148"
+
+                height="20" src="images_public/navigation/service_technology.gif"
+
+                alt="放送技術" /></a></li>
+          <li><a href="services/housing/index.html" title="TBSハウジング"><img width="148"
+
+                height="20" src="images_public/navigation/service_housing.gif" alt="TBSハウジング" /></a></li>
+          <li><a href="http://www.hiyorecords.com/" target="_blank" title="ひよレコード"><img
+
+                width="148" height="20" src="images_public/navigation/service_hiyo.gif"
+
+                alt="ひよレコード" /></a></li>
+          <li><a href="http://tbss-webshop.com/" target="_blank" title="WEB SHOP"><img
+
+                width="148" height="20" src="images_public/navigation/service_web_shop.gif"
+
+                alt="WEB SHOP" /></a></li>
+        </ul>
+      </li>
+      <li><a href="company/index.html" name="menu_company" id="menu_company" title="会社案内"><img
+
+            width="148" height="20" src="images_public/navigation/company.gif" alt="会社案内" /></a>
+        <ul class="submenu" id="submenu_company">
+          <li><a href="company/index.html" title="会社概要"><img width="148" height="20"
+
+                src="images_public/navigation/company_profile.gif" alt="会社概要" /></a></li>
+          <li><a href="company/history/index.html" title="沿革"><img width="148" height="20"
+
+                src="images_public/navigation/company_history.gif" alt="沿革" /></a></li>
+          <li><a href="company/services/index.html" title="主な事業内容"><img width="148"
+
+                height="20" src="images_public/navigation/company_service.gif" alt="主な事業内容" /></a></li>
+          <li><a href="company/profile/index.html" title="組織図／役員／売上高推移"><img width="148"
+
+                height="20" src="images_public/navigation/company_organization.gif"
+
+                alt="組織図／役員／売上高推移" /></a></li>
+          <li><a href="company/map/index.html" title="地図"><img width="148" height="20"
+
+                src="images_public/navigation/company_map.gif" alt="地図" /></a></li>
+          <li><a href="english/index.html" title="English Information"><img width="148"
+
+                height="20" src="images_public/navigation/company_english.gif" alt="English Information" /></a></li>
+        </ul>
+      </li>
+      <li><a href="index.html" name="menu_recruit" id="menu_recruit" title="社員採用"><img
+
+            width="149" height="20" src="images_public/navigation/recruit.gif" alt="社員採用" /></a>
+        <ul class="submenu" id="submenu_recruit">
+          <li><a href="saiyo/saiyo_top.html" title="採用情報" target="_blank"><img width="148"
+
+                height="20" src="images_public/navigation/recruit_info2.gif" alt="採用情報" /></a></li>
+          <!--li><a href="index.html" title="採用FAQ"><img src="../images_public/navigation/recruit_faq.gif" width="148" height="20" alt="採用FAQ" /></a></li>
+					<li><a href="index.html" title="新入社員の一日"><img src="../images_public/navigation/recruit_adayof.gif" width="148" height="20" alt="新入社員の一日" /></a></li>					<li><a href="index.html" title="リクルート入力フォーム"><img src="../images_public/navigation/recruit_form.gif" width="148" height="20" alt="リクルート入力フォーム" /></a></li-->
+        </ul>
+      </li>
+    </ul>
+    <!-- /Menu -->
+    <!-- Contents -->
+    <div id="contents">
+
+	
+	
+	      <!-- Event -- <div id="event">--asako update-->
+     
+
+        <div id="slideshow">
+            <div class="slides">
+                <ul>
+                    <li id="slide-one">
+					    <p><a href="http://www.soccer-kentei.jp/blog/top/">
+                            <img src="images_index/soccer.gif" height="60"  width="695"></a>
+                        </p>
+					
+                        
+                    </li>
+                    <li id="slide-two">
+                        <p><a href="services/tousysou/index.html">
+
+                            <img src="images_index/tousyou.png" height="60"  width="695"></a>
+                        </p>
+                    </li>   
+                    <li id="slide-three">
+<p><a href="http://tbss-webshop.com/">
+						   <img src="images_index/menu1.jpg" height="60" width="695"></a>
+                          
+                        </p>                    </li>  
+					
+					
+					<li id="slide-four">
+                        <p>
+						     
+
+<embed src="soup.swf" quality="high" width="690" height="60" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+   
+
+                        </p>
+                    </li>  
+					
+					<li id="slide-five">
+                        <p>
+test   
+
+                        </p>
+                    </li>  					
+					
+					              
+                </ul>
+     </div>
+            <ul class="slides-nav">
+                <li class="on"><!--
+				<a href="#slide-one"><img src="images_index/soccer_menu.png" height="20"-->						
+				<a href="http://www.soccer-kentei.jp/blog/top/"><img src="images_index/soccer_menu.png" height="20"></a></li>
+				
+				
+                <li><a href="#slide-two"><img src="images_index/1.jpg" height="20"></a></li>
+				
+                <li><a href="#slide-three"><img src="images_index/service_menu.jpg" height="20"></a></li>
+
+			    <li><a href="#slide-four"><img src="images_index/soup_menu.gif" height="20"></a></li>
+			
+				 
+                <li><a href="#slide-five">test</a></li>
+				 
+            </ul>
+        </div>
+   
+   
+
+   
+   
+   <!--</div>-->
+   
+
+    
+
+	  
+
+      <!--</div>asako update-->	  
+	
+	
+	
+	
+      <div id="services">
+        <h2><img width="191" height="20" src="images_index/service_title.gif" alt="SERVICE サービス内容" /></h2>
+        <ul class="plain">
+          <li><a href="services/event/index.html" title="イベントプロデュース"><img width="244"
+
+                height="45" src="images_index/service_event.gif" alt="イベントプロデュース 展示会、イベント、SP全般の企画から実施まで" /></a></li>
+          <li><a href="services/av/index.html" title="映像音響制作"><img width="244" height="45"
+
+                src="images_index/service_av.gif" alt="映像音響制作 様々な映像制作の受注からアウトプットまで" /></a></li>
+          <li><a href="services/av/index.html#dubbing" title="ダビング制作"><img width="244"
+
+                height="45" src="images_index/service_dubbing.gif" alt="ダビング制作 TBSビデオのダビングを一手に受注" /></a></li>
+          <li><a href="services/print/index.html" title="印刷企画制作"><img width="244"
+
+                height="45" src="images_index/service_print.gif" alt="印刷企画制作 企画デザインから印刷までをトータルで" /></a></li>
+          <li><a href="services/program/index.html" title="番組販売"><img width="244"
+
+                height="45" src="images_index/service_program.gif" alt="番組販売 各テレビ局への番組販売実績は業界No.1" /></a></li>
+          <li><a href="services/contents/index.html" title="コンテンツ企画制作"><img width="244"
+
+                height="45" src="images_index/service_contents.gif" alt="コンテンツ企画制作 DVD・BDの企画から販売、サポートまで" /></a></li>
+          <li><a href="services/technology/index.html" title="放送技術"><img width="244"
+
+                height="45" src="images_index/service_technology.gif" alt="放送技術 番組やCMの放送を24時間体制でサポート" /></a></li>
+          <li><a href="services/publish/index.html" title="出版事業"><img width="244"
+
+                height="45" src="images_index/service_publish.gif" alt="出版事業" /></a></li>
+          <li><a href="services/housing/index.html" title="TBSハウジング"><img width="244"
+
+                height="45" src="images_index/service_housing.gif" alt="TBSハウジング 首都圏会場の企画・運営" /></a></li>
+        </ul>
+      </div>
+
+	  <!-- /osirase　2012/05/ asako insert↓<img width="98" height="21" src="images_index/info.png" alt="震災お悔やみ" /> -->
+      <div id="osirase">
+        <h2>Information</h2>
+        <ol class="plain text"><center>
+         「東北地方太平洋沖地震」の犠牲になられた方々に対し、<br>
+		 深くお悔やみ申し上げますとともに、
+		 心よりお見舞いを申し上げます。<br>
+		一日も早く皆様が安心して生活できる日が来ることを、心よりお祈りいたします。<br>
+       </center> </ol>
+      </div>
+	  
+	  
+	   <!-- /osirase 2012/05/ asako insert ↑-->
+
+      <!-- /News -->
+      <div id="news">
+        <h2><img width="98" height="21" src="images_index/news_title.gif" alt="NEWS 新着情報" /></h2>
+        <ol class="plain text">
+          <li>2012. 06. 20  <a href="company/profile/index.html" 
+              target="_self" title="組織変更" alt="組織変更">株主総会にともない役員・売上高を変更</a><a href="company/profile/index.html"
+              target="_self" title="組織変更" alt="組織変更"></a></li>
+          <li>2011. 06. 22  <a href="company/profile/index.html" target="_self"
+
+              title="組織変更" alt="組織変更">株主総会にともない役員・売上高を変更</a></li>
+          <li><br />
+            <a href="company/profile/index.html" target="_self" title="組織変更" alt="組織変更"></a></li>
+        </ol>
+      </div>
+      <!-- /recruit -->
+      <div id="recruit">
+        <h2><img width="124" height="21" src="images_index/recruit_title.gif" alt="RECRUIT 採用情報" /></h2>
+        <ul class="plain">
+          <li class="info"></li>
+          <li class="senpai">
+            <p>2012年度定期採用受付は終了いたしました。</p>
+          </li>
+        </ul>
+      </div>
+      <!-- /ContentsBody -->
+      <!-- Banner -->
+      <ul class="plain" id="banner">
+        <table  width="734px"   bgcolor="#83A7BE">
+          <tbody>
+            <tr>
+              <td valign="top">
+                <li class="sacas">
+				  <a href="http://www.tbs.co.jp/" title="TBS" target="_blank">
+				  <img src="http://www.tbs.co.jp/company/gif/tbs_02.gif" alt="TBS" height="32" /></a>
+				</li>
+                <li class="sacas">
+				  <a href="http://www.tbs-housing.com/" title="TBSハウジング"  target="_blank">
+				  <img  src="images_public/banner_housing.gif" alt="TBSハウジング" height="32"/></a>
+				  </li>	  
+                <li class="sacas">
+				  <a href="http://www.datatraffic.jp/" title="データトラフィック" target="_blank">
+				  <img src="images_public/banner_data.gif"  alt="株式会社データトラフィック" height="32" /></a>
+				</li>
+                <li class="sacas">
+				  <a href="http://www.crei.co.jp/" title="株式会社クレイ"  target="_blank">
+				  <img  src="images_public/banner_crei.gif" alt="株式会社クレイ" height="32" /></a>
+				</li>
+                <li class="sacas">
+				  <a href="http://sacas.net/" title="akasakaSacas"  target="_blank">
+				  <img  src="images_public/banner_sacas.gif"   alt="akasakaSacas" height="32" /></a>
+				</li>
+              </td>
+            </tr>
+		 </tbody>
+	 </table>
+     <table>
+       <tbody>
+
+            <tr>
+              <td valign="top">
+                 <li class="sakaba">
+				   <a href="http://ishop.tbs.co.jp/tbs/org/life/sakaba/book/-/ps_id/1074735/s_cd/0001/c_cd/11151"  title="酒場放浪記" target="_blank">
+				   <img height="30" src="images_public/banner_ishop_hourouki.gif"  alt="酒場放浪記" /></a>
+				 </li>
+
+           
+				 <li class="sakaba">
+ 			        <a href="http://www.candybears.jp/" title="キャンディベア"   target="_blank">
+					<img height="30" src="images_public/banner_cb.gif"  alt="キャンディベア" /></a>
+			     </li>
+				 
+				 
+				 <li class="sakaba">
+				  <a href="http://www.hiyorecords.com/oooka3/" title="大岡越前"  target="_blank">
+				  <img height="30" src="images_public/banner_oooka.gif"  alt="大岡越前" /></a>
+				</li>   
+				 
+				 <li class="handcraftguitar">
+				   <a href="http://utasera.jp/" title="歌セラ" target="_blank">
+				   <img  height="42" src="images_public/banner_utasera.gif"  alt="歌セラ" /></a>
+				 </li>   
+			     <li class="handcraftguitar">
+				    <a href="http://www.soupcurry-drama.jp/"  title="スープカレー" target="_blank">
+					<img   height="42" src="images_index/soup.jpg" alt="スープカレー" /></a>
+				 </li>  
+				 <li class="handcraftguitar">
+				    <a href="http://handcraftguitar.jp/"  title="TOKYOハンドクラフトギターフェス" target="_blank">
+					<img  height="42" src="images_public/banner_handcraftguitar.gif" alt="TOKYOハンドクラフトギターフェス" /></a>
+				 </li>  	
+              </td>
+            </tr>
+			
+			<tr>
+              <td valign="top">
+       
+              </td>
+            </tr>
+			
+			
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr>
+              <td valign="top">
+
+
+              </td>
+			  
+			  
+            </tr>
+          </tbody>
+        </table>
+      </ul>
+      <!-- /Banner -->
+      <!-- English Information --> <a href="english/index.html" title="English Information"
+
+        id="englishInfo" name="englishInfo"><img width="107" height="11" src="images_index/english_info.gif"
+
+          alt="English Infomation" /></a>
+      <!-- /English Information --> </div>
+    <!-- /Contents -->
+    <!-- Footer -->
+    <div id="footer">
+      <ul class="plain">
+        <!--li class="english"><a href="../english/index.html">English Information</a></li-->
+        <li class="sitemap"><a href="sitemap/index.html">サイトマップ</a></li>
+        <li class="sitemap"><a href="terms/index.html">著作権とリンク</a></li>
+        <li><a href="privacy/index.html" title="個人情報保護への取り組みについて" target="_blank">個
+            人情報保護への取り組みについて</a></li>
+      </ul>
+      <p>Copyright(C) 2001-2012, TBS SERVICE, Inc. All Rights Reserved.</p>
+    </div>
+    <!-- /Footer -->
+  </body>
+</html>
+</textarea>
+		</form>
+		<div id="footer">
+			<div onclick="window.location = 'http://mtthw.me/instabin'" id="head">Instabin!</div>
+            <button id="fullscreenOff" onclick="click2()">X</button>
+			<a href="http://mtthw.me/instabin/help.html"><button type="submit" onclick="help()" title="Help">?</button></a>
+			<!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+			<button onclick="document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

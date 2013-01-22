@@ -1,0 +1,238 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="http://dl.dropbox.com/u/7984474/projects/instabin/shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='http://dl.dropbox.com/u/7984474/projects/instabin/style.css' rel='stylesheet' type='text/css'>
+		<link href="http://dl.dropbox.com/u/7984474/projects/instabin/favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="http://mtthw.me/instabin/save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here..."><table style="width:100%;">
+<tbody>
+<tr>
+<td><img alt="ee" class="image-inline" src="../../../../2.jpg" />大</td>
+<td scope="col">
+<p style="text-align: right; "><span>地址: 福建省厦门市同安区美溪道思明工业园21号</span></p>
+<p style="text-align: right; "><span>邮编:361100</span></p>
+<p style="text-align: right; "><span>电话: 0592-7155102,5769018,&#160;7231860；采购部：0592-5769021</span></p>
+<p style="text-align: right; "><span>传真:0592-5769020</span></p>
+<p style="text-align: right; "><span>E-mail: </span><a href="mailto:connie@airerv.cn"><span>connie@airerv.cn</span></a><span> </span><span> </span><a href="mailto:xmzhh.a@gmail.com"><span>xmzhh.a@gmail.com</span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>客户：<span class="plominoFieldClass">kehu</span></h3>
+<div></div>
+<h3>产品描述</h3>
+<div>主型号：<span class="plominoFieldClass">xiliehao</span>-<span class="plominoFieldClass">xtchang</span>-<span class="plominoFieldClass">xtkuan</span>-<span class="plominoFieldClass">xtgao</span>-<span class="plominoFieldClass">xtjianju</span>技术指标：-<span class="plominoFieldClass">caizhi</span>-<span class="plominoFieldClass">kuanjia</span>-<span class="plominoFieldClass">jiaodu</span>-<span class="plominoFieldClass">qiliu</span>-<span class="plominoFieldClass">mifen</span>-</div>
+<div>板片材质：<span class="plominoFieldClass">banpiancaizhi</span>。</div>
+<div>框架形式：<span class="plominoFieldClass">kuangjia</span>。</div>
+<div>密封材料：<span class="plominoFieldClass">guijiao</span>。</div>
+<div>拼接数量：<span class="plominoFieldClass">shuliang</span>。</div>
+<div>板片距离：<span class="plominoFieldClass">jianju</span>。</div>
+<div>密封性：</div>
+<div>重量：<span class="plominoFieldClass">zhongliang</span>。</div>
+<h3>价格</h3>
+<div>单价：数量：运费：总价：</div>
+<h3>热性能</h3>
+<table>
+<tbody>
+<tr>
+<td scope="row"><br /></td>
+<td colspan="2" style="text-align: center; ">排气<br /></td>
+<td colspan="2" style="text-align: center; ">供气</td>
+</tr>
+<tr>
+<td style="text-align: right; ">空气流量<br /></td>
+<td style="text-align: right; ">liuliang1<br /></td>
+<td>m/h</td>
+<td style="text-align: right; ">liuliang2<br /></td>
+<td>m/h</td>
+</tr>
+<tr>
+<td style="text-align: right; ">温度</td>
+<td style="text-align: right; ">wendu1<br /></td>
+<td>℃</td>
+<td style="text-align: right; ">wendu2<br /></td>
+<td>℃</td>
+</tr>
+<tr>
+<td style="text-align: right; ">湿度</td>
+<td style="text-align: right; ">shidu1<br /></td>
+<td>%</td>
+<td style="text-align: right; ">shidu2<br /></td>
+<td>%</td>
+</tr>
+<tr>
+<td style="text-align: right; ">压降</td>
+<td style="text-align: right; "><span class="plominoFieldClass">yajiang1</span><br /></td>
+<td>Pa</td>
+<td style="text-align: right; ">yajiang2<br /></td>
+<td>Pa</td>
+</tr>
+<tr>
+<td style="text-align: right; ">热效率</td>
+<td style="text-align: right; ">rexiaolv1<br /></td>
+<td>%</td>
+<td style="text-align: right; ">rexiaolv2<br /></td>
+<td>%</td>
+</tr>
+<tr>
+<td style="text-align: right; ">通道风速</td>
+<td style="text-align: right; ">fengsu1<br /></td>
+<td>m/s</td>
+<td style="text-align: right; ">fengsu2<br /></td>
+<td>m/s</td>
+</tr>
+<tr>
+<td style="text-align: right; ">冷凝水</td>
+<td style="text-align: right; ">lengningshui<br /></td>
+<td>l/h</td>
+<td><br /></td>
+<td style="text-align: right; "><br /></td>
+</tr>
+<tr>
+<td style="text-align: right; ">交换能量</td>
+<td style="text-align: right; ">nengliang<br /></td>
+<td>Kw</td>
+<td></td>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+<p><span style="text-align: left; ">尺寸</span></p>
+<div>
+<table class="invisible">
+<tbody>
+<tr>
+<td>A＝<span class="plominoFieldClass">A</span>mm</td>
+<th rowspan="4"><span class="plominoFieldClass">tupian</span></th>
+</tr>
+<tr>
+<td>B＝<span class="plominoFieldClass">B</span>mm</td>
+</tr>
+<tr>
+<td>C＝<span class="plominoFieldClass">C</span>mm</td>
+</tr>
+<tr>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div></div>
+<div>提供时间：<span class="plominoFieldClass">shijian</span></div>
+<div></div>
+<div>由于公司产品不断开发改进更新中，文件数据如有变更，恕不另行通知。</div>
+<div>版本：1.08</div></textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button>
+                  </a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

@@ -1,0 +1,141 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+Three years <a href=" http://guestbooks.pathfinder.gr/read/yragolibabeh ">Young Boy Lovers Toplist</a>  damm she look like my room mate
+ <a href=" http://aeoii.page.tl ">Top 100 Pedo Pthc Model</a>  wats her name daa  she is fukinnn  hot
+ <a href=" http://forum.xnxx.com/member.php?u=509465 ">Loli Latina Nude Pics</a>  i wanna join them
+ <a href=" http://ekuauhu.blogg.se/ ">best lolita preteen sites</a>  V cute chick but...
+ <a href=" http://opiyjyfy.de.tl ">pretenz young model</a>  I love this Video *Favorited*
+ <a href=" http://guestbooks.pathfinder.gr/read/eucikygyhu ">free movies man fucking animals</a>  Thats a pretty pussy!
+ <a href=" http://www.nikukopar.fora.pl ">Preteen Cp</a>  yeah this a milf but has a nice  booty
+ <a href=" http://hinadipefoge.yolasite.com ">ukranian lolita model nude</a>  choke her throat stuff it
+ <a href=" http://www.epractice.eu/en/people/169692/professional ">erotic preteen photography</a>  luv to spray everywhere
+ <a href=" http://www.hokoekary.fora.pl ">Underage Lolitas</a>  she is sooo horny..
+ <a href=" http://tekirajune.page.tl ">daily teen bbs</a>  omg l always sqrt watchin her
+ <a href=" http://www.epractice.eu/en/people/174848/professional ">hot young girls masturbating lesbians sex free download</a>  Add me as friend girls
+ <a href=" http://www.stupidvideos.com/profile/uryfaoki/ ">young girl bras</a>  she stole Anastasia Christ's STUFF
+ <a href=" http://www.xfire.com/blog/umyfebohoguse/2483786 ">mar dvd japanese loli</a>  one of the hottest women in porn!!
+ <a href=" http://eduumefo.page.tl ">Loli Hentai Games</a>  love this video [;
+ <a href=" http://yfadeot.mygorillas.com ">lovely lolita fucking</a>  she has some nice tits
+ <a href=" http://yjyhohesi.pornlivenews.com ">Cp Forum</a>  The hottest part is they do it right in front of a window.
+ <a href=" http://orydohouqej.yolasite.com ">Forum Of Young Lolita</a>  who's the blonde with the butterfly tattoo?
+ <a href=" http://pyqihucup.pornlivenews.com ">Underage Nymphets</a>  She's adorable! I love her!
+ <a href=" http://www.xfire.com/blog/kihafuregiy/2491917 ">Pthc Video</a>  is a good dick. i love it.
+ </textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

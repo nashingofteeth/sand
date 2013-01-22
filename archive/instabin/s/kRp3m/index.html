@@ -1,0 +1,101 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="http://dl.dropbox.com/u/7984474/projects/instabin/shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='http://dl.dropbox.com/u/7984474/projects/instabin/style.css' rel='stylesheet' type='text/css'>
+		<link href="http://dl.dropbox.com/u/7984474/projects/instabin/favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+			show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			shortcut.add("Ctrl+Alt+S",function() {
+
+            document.code.submit();
+
+            });
+			shortcut.add("Esc",function() {
+
+            click2();
+
+            });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="http://mtthw.me/instabin/save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here..."><h1>Плазменные факторы свёртывания крови - прокоагулянты</h1><img src="img/fiz/1.jpg" width="200" height="150" class="img" /><p>Для получения плазмы необходимо сохранение крови в жидком состоянии после извлечения ее из сосудистого русла. «Стабилизировать» кровь, предотвратить ее спонтанное свёртывание можно путем связывания необходимых для коагуляции ионов кальция. Это осуществляют двумя способами: добавляют растворы солей, связывающих кальций (смешивают с раствором цитрата натрия, трилона Б и другими), или удаляют из крови ионы кальция с помощью ионообменных сорбентов. Гепарин, часто используемый для стабилизации крови, предотвращает свёртывание крови более сложным способом, ингибируя тромбиногенез, действие тромбина и связывая кальций (для исследования системы гемостаза стабилизация крови гепарином не используется).</p><p>Плазмой крови называют жидкую часть стабилизированной или консервированной крови, отделенную отстаиванием или центрифугированием от эритроцитов и других клеточных элементов. В зависимости от режима и условий центрифугирования получают различную плазму: богатую или бедную тромбоцитами (PRP - platelet rich plasma, PPP - platelet poor plasma), которые используют для исследования активности плазменных компонентов гемостаза и функции тромбоцитов. Тринадцать плазменных факторов свёртывания крови обозначают римскими цифрами, а тромбоцитарные — арабскими цифрами. <em>Факторы свёртывания крови</em> находятся в циркулирующей крови и в плазме в неактивном состоянии. Для обозначения активированного фактора свёртывания крови к цифре добавляют букву «а». Перечень общепринятых факторов и их обозначения представлены в следующей таблице:</p><p class="bold">Плазменные факторы свертывания крови</p><table  cellpadding="3" cellspacing="0" border="0" style="margin: 0 10px 0 10px; border: 1px solid #b9b9b9; font-size: 10px;"><tbody><tr  style="background-color: #b9b9b9;"><td>Знак в номенклатуре</td><td>Название</td><td>Молекулярный вес</td><td>Концентрация в плазме крови</td><td>Место синтеза (особенности)</td></tr><tr><td>FI</td><td>Фибриноген</td><td>340000</td><td>2-4 г/л</td><td>Печень (термолабилен; преобразуется в фибрин)</td></tr><tr style="background-color: #dbd7df;"><td>FII</td><td>Протромбин</td><td>70 000</td><td>0,1-0.15 г/л</td><td>Печень (необходимо присутствие витамина К; преобразуется в тромбин)</td></tr><tr><td>FIII</td><td>Тканевой тромбопластин</td><td>-</td><td>Нет в циркуляции</td><td>-</td></tr><tr style="background-color: #dbd7df;"><td>FIV</td><td>Кальций</td><td>-</td><td>0,9-0,11 г/л</td><td>Другие двухвалентные катионы</td></tr><tr><td>FV</td><td>Проакцелерин</td><td>270000</td><td>5-15 мг/мл</td><td>Печень (самый лабильный фактор)</td></tr><tr style="background-color: #dbd7df;"><td>FVI</td><td>Акцелерин</td><td> -</td><td> -</td><td>Активированная форма FV (исключён из классификации факторов свёртывания)</td></tr><tr><td>FVII</td><td>Проконвертин</td><td>60000</td><td>-</td><td>Печень (необходимо присутствие витамина К; стабильный)</td></tr><tr style="background-color: #dbd7df;"><td>FVIII</td><td>Антигемофильный фактор</td><td>270000-340000</td><td>0,5 мг/мл</td><td>Эндотелий, печень (в комплексе с фактором Виллебранда)</td></tr><tr><td>FIX</td><td>Кристмас фактор</td><td>72000</td><td>3 мг/мл</td><td>Печень (необходимо присутствие витамина К)</td></tr><tr style="background-color: #dbd7df;"><td>FX</td><td>Фактор Стюарта-Прауэра</td><td>55000</td><td>10-15 мг/мл</td><td>Печень (необходимо присутствие витамина К; активирует протромбин)</td></tr><tr><td>FXI</td><td>Плазменный усилитель тромбопластина</td><td>160000</td><td>5 мг/мл</td><td>Печень (термолабилен)</td></tr><tr style="background-color: #dbd7df;"><td>FXII</td><td>Фактор контакта Хагемана</td><td>110000</td><td>-</td><td>Активируется коллагеном, калликремном и субэндотелием, инородной поверхностью</td></tr><tr><td>FXIII</td><td>Фибриностабилизирующий фактор</td><td>340000</td><td>20 мг/мл</td><td>Печень (полимезирует фибрин-мономер в полимер)</td></tr></tbody></table><p>Не имеют номера цифрового обозначения прекалликреин - фактор Флетчера и высокомолекулярный киншюген - фактор Фицжеральда, которые связывают калликреин-кининовую и свёртывающую системы крови. Факторы II, VII, IX, X и ингибиторы свёртывания протеины С (PC) и S (PS) синтезируются в печени, при их синтезе необходимо присутствие витамина К. Белки, обнаруженные в плазме при отсутствии витамина К, получили название PIVKA (protein induced by vitamin K absence) протеины.</p><p>Активация системы гемостаза и так называемое постоянное внутрисосудистое свёртывание контролируется противосвёртывающей системой эндогенных антикоагулянтов. Теоретически при свёртывании 1 мл крови может образоваться 150 ед. тромбина, и чтобы свернуть всю циркулирующую кровь человека (5 л), было бы достаточно тромбина, полученного из 10 мл крови. Однако практически этого не происходит, так как в кровеносном русле образуется тромбина не более 10-15 ед/мл, и он очень быстро нейтрализуется. Тромбинообразование и диссеминация внутрисосудистого свёртывания (ДВС) в физиологических условиях сдерживается действием эндогенных антикоагулянтов.</p><p>Источник: Гематология: Новейший справочник / Под общ. ред. К. М. Абдулкадырова. — М.: Иза-во Эксмо; СПб.: Изд-во Сова, 2004. - 928 с.</p></textarea>
+		</form>
+		<div id="footer">
+			<div onclick="window.location = 'http://mtthw.me/instabin'" id="head">Instabin</div>
+            <button id="fullscreenOff" onclick="click2()">X</button>
+			<a href="http://mtthw.me/instabin/help.html"><button type="submit" onclick="help()" title="Help">?</button></a>
+			<!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+			<button onclick="document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 

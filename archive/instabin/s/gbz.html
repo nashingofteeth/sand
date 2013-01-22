@@ -1,0 +1,379 @@
+<html>  
+    <head>
+        <title>Instabin</title>
+		<script src="../shortcuts.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+		<link href='../style.css' rel='stylesheet' type='text/css'>
+		<link href="../favicon.ico" rel="Shortcut Icon" />
+        <script type="text/javascript"> 
+			
+            var old = '';
+            
+            function update() {
+            var docObj = window.frames['updateFrame'].document;
+            var textarea = document.getElementById("ta");
+            
+            if(old != textarea.value) {
+            old = textarea.value;
+            docObj.open();
+            docObj.write(old);
+            docObj.close();
+            }
+            window.setTimeout(update, 150)
+            }
+			
+			Count=0
+            timer=""
+            function Set_Count_Mouse() {
+            clearTimeout(timer)
+            Count++
+            timer=setTimeout("Check_Count_Mouse()",300)
+            }
+            function Check_Count_Mouse() {
+            if(Count==4) {
+            click()
+            }
+			if(Count==5) {
+            click3()
+            }
+            Count=0
+            }
+			
+            function click1() {
+            document.getElementById('updateFrame').style.width = '99.9%';
+            show('updateFrame');
+            hide('ta');
+            //show('fullscreenOff');
+            }
+            function click2() {
+            show('ta');
+            show('updateFrame');
+            document.getElementById('updateFrame').style.width = '60%';
+            document.getElementById('ta').style.width = '39.7%';
+            //hide('fullscreenOff');
+            }
+            function click3() {
+            document.getElementById('ta').style.width = '99.9%';
+            show('ta');
+            hide('updateFrame');
+            //show('fullscreenOff');
+            }
+			function help() {
+			window.location = 'http://mtthw.me/instabin/help.html'
+			}
+            
+            function hide(d) { document.getElementById(d).style.display = "none"; }
+            function show(d) { document.getElementById(d).style.display = "inline"; }
+			
+			            shortcut.add("Ctrl+Enter",function() {
+                        document.code.submit();
+                        });
+                        shortcut.add("Ctrl+M",function() {
+                        click2();
+                        });
+                        shortcut.add("Tab",function() {
+                        document.getElementById('text').focus();
+                        document.getElementById('text').select();
+                        });
+                        shortcut.add("Shift+Tab",function() {
+                        document.getElementById('ta').focus();
+                        });
+                        shortcut.add("Ctrl+.",function() {
+                        click1();
+                        });
+                        shortcut.add("Ctrl+,",function() {
+                        click3();
+                        });
+        </script>
+    </head> 
+    <body id="body" onload="update(); push();"> 
+        <iframe src="javascript:''" height="100%" width="100%" name="updateFrame" id="updateFrame"></iframe> 
+        <form name="code" method="post" action="../save.php">
+			<textarea onclick="Set_Count_Mouse();" onkeyup="save()" height="100%" width="100%" autofocus name="ta" id="ta" placeholder="Type your HTML here...">
+<div>
+	<h3 class="one-half">
+		<strong>Ballet Master in Chief</strong><br />
+		Peter Martins</h3>
+	<h3 class="column-last">
+		<strong>Executive Director</strong><br />
+		Katherine E. Brown</h3>
+</div>
+<br clear="all" />
+<strong>Executive Offices</strong><br />
+<div class="one-third">
+	Personal Assistant to Mr. Martins:<br />
+	Administratitive Assistant to<br />
+	Mr. Martins:<br />
+	Executive Assistant to Ms. Brown:<br />
+	&nbsp;</div>
+<div class="column-last">
+	Deborah Koolish<br />
+	<br />
+	Julianne Maeda<br />
+	Barbara Hart<br />
+	&nbsp;</div>
+<br cleaf="all" />
+<strong>Communications and Special Projects</strong><br />
+<div class="one-third">
+	Managing Director:<br />
+	Manager of Media Relations:<br />
+	Associate, Communications<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; and Special Projects:<br />
+	&nbsp;</div>
+<div class="column-last">
+	Robert Daniels<br />
+	Katharina Plumb<br />
+	<br />
+	Caitlin Gillette</div>
+<br cleaf="all" />
+<strong>Development and Special Events</strong><br />
+<div class="one-third">
+	Senior Director of Development:<br />
+	Director, Foundation<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; and Government Relations:<br />
+	Director, Individual Giving:<br />
+	Director, Patron Services<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; and Planned Giving:<br />
+	Director Special Events:<br />
+	Director, Corporate Relations:<br />
+	Associate Director, Special Events:<br />
+Associate Director, Major Gifts:<br />
+	Manager, Member Services<br />
+	Manager, Membership:<br />
+	Coordinator, Special Events:<br />
+	Coordinator, Young Patrons and NYCB TurnOut:<br />
+        Associate, Membership and Research:<br />
+	Associate, Corporate Relations:<br />
+	Assistant, Special Events:<br />
+	Assistant, Major Gifts:<br />
+	&nbsp;</div>
+<div class="column-last">
+	Karen Leies<br />
+	<br />
+	Catherine LeClair<br />
+	Amy Mugavero<br />
+	<br />
+	Faith Shaw Petrides<br />
+	Christine van Kipnis<br />
+	Fredrick E. Wodin<br />
+	Shelby Clapp<br />
+        Julia Rosenfeld<br />
+	Douglas James Hamilton<br />
+	Jerry Parra<br />
+	Heather J. Lynn<br />
+	<br />
+	Rachel Mann<br />
+<br />
+	Sarah Horne<br />
+	Galina Khitrova<br />	
+	Lauren Schaefer<br />
+	Ellen Verdibello</div>
+<br clear="all" />
+<strong>Marketing and Online Media</strong><br />
+<div class="one-third">
+	Director, Marketing:<br />
+	Associate Director, Marketing:<br />
+	Associate Director, Advertising and Promotions:<br />
+	Producer, Digital/Web:<br />
+	Manager, Group Sales:<br />
+	Manager, Ticket Services:<br />
+
+	Designer:<br />
+	Associate, Ticket Services:<br />
+	&nbsp;</div>
+<div class="column-last">
+	Karen Girty<br />
+	Dustin Brauneck<br />
+	Jill Jefferson<br />
+	Michaela Drapes<br />
+	Connie Coddington<br />
+	Aaron Franklin<br />
+	Christine Navin<br />
+	Panchali Null</div>
+<br clear="all" />
+<strong>Media Projects</strong><br />
+<div class="one-third">
+	Director:</div>
+<div class="column-last">
+	Ellen Bar</div>
+<br clear="all" />
+<strong>Education</strong><br />
+<div class="one-third">
+	Manager, Outreach Programs:<br />
+	Coordinator:<br />
+	Coordinator, School Programs:</div>
+<div class="column-last">
+	Meghan Kent<br />
+	Erin E. Brennan<br />
+	Sloane Bratter</div>
+<br clear="all" />
+<strong>Volunteer Programmatic Services</strong><br />
+<div class="one-third">
+	Managing Director:<br />
+	Assistant Director:</div>
+<div class="column-last">
+	Joan Quatrano<br />
+	Susanna Organic</div>
+<br clear="all" />
+<strong>Operations and Company Management</strong><br />
+<div class="one-third">
+	Senior Director of Operations:<br />
+	Company Manager:</div>
+<div class="&quot;column-last&quot;">
+	Brooks Parsons<br />
+	Nicole Taney</div>
+<br clear="all" />
+<strong>Production and Design</strong><br />
+<div class="one-third">
+	Production Stage Manager:<br />
+	Technical Director:<br />
+	Resident Lighting Designer:<br />
+	Lighting Director:<br />
+	Stage Manager:<br />
+	Assistant Stage Manager:<br />
+	Assistant Lighting Director:<br />
+	Assistant Technical Director:<br />
+	Music and Video Archivist:<br />
+	Régisseur:</div>
+<div class="column-last">
+	Marquerite Mehler<br />
+	Perry Silvey<br />
+	Mark Stanley<br />
+	Penny Jacobus<br />
+	Kathryn Orr<br />
+	Laine Goerner<br />
+	Eric Larson<br />
+	Daniel Thomas<br />
+	Serapio Walton<br />
+	Thomas A. Lemanski</div>
+<br clear="all" />
+<strong>Music Deptartment</strong><br />
+<div class="one-third">
+	Music Adminstrator:<br />
+	Orchestra Manager:<br />
+	Orchestra Librarian:<br />
+	Rehearsal Pianist:<br />	
+Piano Technician:</div>
+<div class="column-last">
+	Jeffrey Guimond<br />
+	David Titcomb<br />
+	Michael Martin<br />
+	Craig Baldwin<br />
+	Fred Hitchcock</div>
+<br clear="all" />
+<strong>Costume and Wardrobe</strong><br />
+<div class="one-third">
+	Director of Costumes:<br />
+	Manager, Costume Shop:<br />
+	Wardrobe Mistress:<br />
+	Wardrobe Master:<br />
+	Assistant Wardrobe Mistress:<br />
+	Assistant Wardrobe Master:<br />
+	Men&#39;s Wardrobe Consultant:<br />
+	Hair and Make-up Supervisor:<br />
+	Assistant, Hair and Make-up:<br />
+	Ballet Shoe Supervisor:</div>
+<div class="column-last">
+	Marc Happel<br />
+	Jason Hadley<br />
+	Jacqueline (Norma) Attride<br />
+	John Radwick<br />
+	Marlene Olson Hamm<br />
+	Eric Rudy<br />
+	Leslie Copeland<br />
+	Suzy Alvarez<br />
+	Karla Elie<br />
+	Dara Faust</div>
+<br clear="all" />
+<strong>Health and Wellness</strong><br />
+<div class="one-third">
+	Orthopedic Consultants:<br />
+	Chiropractic Consultant:<br />
+	Director of Physical Therapy:<br />
+	Physical Therapists:<br />
+	<br />
+	Nutritionist:<br />
+	Wellness Consultant:<br />
+	&nbsp;</div>
+<div class="column-last">
+	William G. Hamilton, M.D., Phillip A. Bauman, M.D.<br />
+        Lawrence E. DeMann, Jr., D.C.<br />
+	Marika Molnar<br />
+	Rebecca Blanchard, Rocky Bornstein, Jemina Cassis, Dirk Hartog,<br />
+	Cameron Gomez, Nadia Sefkovic, Andrea Zujko<br />
+	Joy Bauer, M.S., R.D., CDN<br />
+	Linda H. Hamilton, Ph.D</div>
+<br clear="all" />
+<strong>Finance and Administration</strong><br />
+<div class="one-third">
+	Senior Director,<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; Finance and Administration/Chief<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; Financial Officer:<br />
+	Controller:<br />
+	Finance Manager:<br />
+	Junior Accountant:<br />
+	Director, Donor Records:<br />
+	Database Editor:<br />
+	Payroll and Benefits Administrator: &nbsp;<br />
+	Office Manager:<br />
+	Archivist:</div>
+<div class="column-last">
+	<br />
+	<br />
+	Farang Azari<br />
+	Susan Wilson<br />
+	Yuliya Bukhman<br />
+	Juliana Laracuente<br />
+	Elizabeth V. Ferris<br />
+	Resan Ocot<br />
+	Ieasha Bell<br />
+	Melaura Benitez<br />
+	Erin B. Hestvik</div>
+<br clear="all" />
+<strong>The George Balanchine Trust</strong><br />
+<div class="one-third">
+	Director:<br />
+	Managing Trustee:<br />
+	Coordinator:</div>
+<div class="column-last">
+	Ellen Sorrin<br />
+	Barbara Horgan<br />
+	Nicole Cornell
+	</div>
+<br clear="all" />
+<strong>New York City Ballet MOVES</strong><br />
+<div class="one-third">
+	Artistic Director:<br />
+	Artistic Administrator:</div>
+<div class="column-last">
+	Peter Martins<br />
+	Jean-Pierre Frohlich</div>
+	&nbsp;</div></textarea>
+		</form>
+		<div id="footer">
+			<div onclick=
+                  "window.location = 'http://mtthw.me/instabin'"
+                  id="head">
+                        Instabin
+                  </div>
+                  <button onclick="click3()">&#60;</button> 
+                  <button onclick="click2()">|</button>
+                  <button onclick="click1()">&#62;</button>
+                  <!--<button id="fullscreenOff" onclick=
+                  "click2()">X</button>-->
+                  <a href="help">
+                  <button onclick="document.getElementById('help').display = 'block';document.getElementById('instabin').display = 'none';" title="Help">?</button></a>
+                  <!--<input placeholder="Custom URL..." title="Custom URL" onchange="document.code.submit();" id="custom" style="font-size: 10px;" type="text" name="custom"/>-->
+                   <button onclick=
+                  "document.code.submit();">Fork</button>
+		</div>
+        <script type="text/javascript"> 
+            function resizeTextArea() {
+            var heightOfForm = document.getElementById('fromWrapper').offsetHeight;
+            var heightOfBody = document.body.clientHeight;
+            var buffer = 35;
+            document.getElementById('ta').style.height = (heightOfBody - heightOfForm) - buffer;
+            }
+        </script> 
+    </body> 
+</html> 
