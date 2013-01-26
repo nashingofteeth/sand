@@ -5,7 +5,6 @@ http://*
 
 CACHE:
 
-old.html
 index.html
 codemirror/lib/codemirror.js
 codemirror/mode/xml/xml.js
