@@ -27,7 +27,7 @@ var editboxHTML =
 '<script src="codemirror/lib/util/searchcursor.js"></scr' + 'ipt>' +
 '<script src="codemirror/lib/util/search.js"></scr' + 'ipt>' +
 '<script src="hotkeys.js"></scr' + 'ipt>' +
-'<script>shortcut.add("Shift+Tab",function() { window.setCookie();   });' +
+'<script>shortcut.add("Shift+Tab",function() { window.setCookie(); return false;  });' +
 'shortcut.add("Alt+Shift+Tab",function() { var value = editor.getValue(); prompt("Data URI:", "data:text/html, " + value); });</scr' + 'ipt>' +
 '<script>' +
 'function setCookie() {' +
