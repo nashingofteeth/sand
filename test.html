@@ -5,7 +5,7 @@ In:<br>
 <textarea id='in'></textarea>
 <br>
 <button onclick="alert(zip_deflate(document.querySelector('#in').value))">compress</button>
-<script src="http://localhost:8000/sand/compress.js"></script>
+<script src="compress.js"></script>
 <script>
   url = window.location.hash.replace('%23', '#').substr(1);
   data = zip_inflate(url);
