@@ -1,4 +1,5 @@
-<html lang="en" manifest="cache.appcache">
+<!--<html lang="en" manifest="cache.appcache">-->
+<html>
 <head>
 <title>Sandbox</title>
 <!-- _  _ ___ _  _ _    ___ _ ____ -->
@@ -147,9 +148,12 @@ function saveLocally() {
 </script>
 </head>
 
-<frameset resizable="yes" cols="*, 42%" onload="init();">
+<frameset resizable="yes" cols="*, 42%" rows="*, 20%" onload="init();">
   <frame name="dynamicframe" src="javascript:'';">
   <frame name="editbox" src="javascript:'';">
+  <frame name="testing" srcdoc="javascript: document.write('it works!');">
 </frameset>
-
+<body>
+<div id="testing" style="position: absolute; bottom: 5px; right: 5px; font-size: 50px; color: white;">it works!</div>
+</body>
 </html>
