@@ -28,6 +28,7 @@ var editboxHTML =
 '<link rel="stylesheet" href="codemirror/lib/util/dialog.css">' +
 '<script src="codemirror/lib/util/searchcursor.js"></scr' + 'ipt>' +
 '<script src="codemirror/lib/util/search.js"></scr' + 'ipt>' +
+'<script src="codemirror/lib/util/mark-selection.js"></scr' + 'ipt>' +
 '<script src="hotkeys.js"></scr' + 'ipt>' +
 '<script>shortcut.add("Shift+Tab",function() { window.setCookie();   });' +
 'shortcut.add("Alt+Shift+Tab",function() { var value = editor.getValue(); prompt("Data URI:", "data:text/html, " + value); });</scr' + 'ipt>' +
@@ -70,6 +71,8 @@ var editboxHTML =
 '.CodeMirror-scroll {' +
 '        height: 100%;' +
 '}' +
+'.CodeMirror-selected  { background-color: blue !important; }' +
+'.CodeMirror-selectedtext { color: white; }' +
 '.activeline {background: #222 !important;}' +
 '.CodeMirror-matchingbracket {background: #555 !important;}' +
 'span.CodeMirror-matchhighlight { background: #555; }' +
