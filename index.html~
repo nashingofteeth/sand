@@ -2,12 +2,16 @@
 <html>
 <head>
 <title>sand</title>
-<!-- _  _ ___ _  _ _    ___ _ ____ -->
-<!-- |__|  |  |\/| |     |  | |___ -->
-<!-- |  |  |  |  | |___  |  | |___ -->
+<!--
+ _  _ ___ _  _ _    ___ _ ____ 
+ |__|  |  |\/| |     |  | |___ 
+ |  |  |  |  | |___  |  | |___   
 
-<!-- version 4.3 (frameset) made with <3 by MN -->
-<!-- Open source code at http://github.com/mtthw/HTMLTIE -->
+-->
+<!-- version 4.8 (frameset) made with <3 by MN -->
+<!-- Open source at http://github.com/mtthw/sand -->
+
+<!-- Sorry for the messy code, it was kind of hacked together -->
 <link href="favicon.ico" rel="Shortcut Icon" />
 <meta charset="UTF-8">
 <script type="text/javascript">
@@ -28,48 +32,50 @@ var editboxHTML =
 '<link rel="stylesheet" href="codemirror/lib/util/dialog.css">' +
 '<script src="codemirror/lib/util/searchcursor.js"></scr' + 'ipt>' +
 '<script src="codemirror/lib/util/search.js"></scr' + 'ipt>' +
-'<script src="codemirror/lib/util/mark-selection.js"></scr' + 'ipt>' +
+//'<script src="codemirror/lib/util/mark-selection.js"></scr' + 'ipt>' +
 '<script src="hotkeys.js"></scr' + 'ipt>' +
-'<script>shortcut.add("Shift+Tab",function() { window.setCookie();   });' +
-'shortcut.add("Alt+Shift+Tab",function() { var value = editor.getValue(); prompt("Data URI:", "data:text/html, " + value); });</scr' + 'ipt>' +
+'<script>shortcut.add("Shift+Tab",function() { window.setCookie(); });' +
+'shortcut.add("Alt+Shift+Tab",function() { var value = editor.getValue(); prompt("Data URI:", "data:text/html, " + value); });' +
+'</scr' + 'ipt>' +
 '<script>' +
 'function setCookie() {' +
-'var cookieDiv = document.getElementById("cookie").innerHTML;' +
-'var cookie = prompt("Project name:", cookieDiv);' +
-'document.getElementById("cookie").innerHTML = cookie;' +
-'editor.setValue("");' +
-'window.localStorage.setItem("cookie", cookie);'+
-'document.getElementById("loaded").innerHTML = "false"; }' +
+'  var cookieContent = localStorage.getItem("cookie");' +
+'  var cookie = prompt("Project name:", cookieContent);' +
+'  if (cookie == null) cookie = cookieContent;' +
+'  editor.setValue("");' +
+'  window.localStorage.setItem("cookie", cookie);'+
+'  document.getElementById("loaded").innerHTML = "false";' +
+'}' +
 '</scr' + 'ipt>' +
 '<style type="text/css">' +
 '.expand { width: 100%; height: 100%; }' +
 '.close { border: none; margin: 0px; padding: 0px; }' +
 'html,body { overflow: hidden; }' +
 '::-webkit-scrollbar {' +
-'        width: 5px;' +
-'        height: 5px;' +
+'  width: 5px;' +
+'  height: 5px;' +
 '}' +
 '::-webkit-scrollbar-track {' +
-'        background-color: transparent;' +
+'  background-color: transparent;' +
 '}' +
 '::-webkit-scrollbar-thumb {' +
-'        background-color: #444;' +
-'        border-radius: 5px;' +
-'        padding-right: 50px;' +
+'  background-color: #444;' +
+'  border-radius: 5px;' +
+'  padding-right: 50px;' +
 '}' +
 '.CodeMirror-line-numbers {' + 
-'        width: 2.2em;' +
-'        color: #aaa;' +
-'        background-color: #eee;' +
-'        text-align: right;' +
-'        padding-right: .3em;' +
-'        font-size: 10pt;' +
-'        font-family: monospace;' +
-'        padding-top: .4em;' +
+'  width: 2.2em;' +
+'  color: #aaa;' +
+'  background-color: #eee;' +
+'  text-align: right;' +
+'  padding-right: .3em;' +
+'  font-size: 10pt;' +
+'  font-family: monospace;' +
+'  padding-top: .4em;' +
 '}' +
 
 '.CodeMirror-scroll {' +
-'        height: 100%;' +
+'  height: 100%;' +
 '}' +
 '.CodeMirror-selected  { background-color: blue !important; }' +
 '.CodeMirror-selectedtext { color: white; }' +
@@ -78,9 +84,9 @@ var editboxHTML =
 'span.CodeMirror-matchhighlight { background: #555; }' +
 '.CodeMirror-focused span.CodeMirror-matchhighlight { background: #555; !important }' +
 '.cm-tab {' +
-'         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAQklEQVR42mNgGAWjYEQA5v9AAKQFQBwoe8gBJajDBVE88H+IgqEYA3JQhxsNRQ+A80BhYaH/UM4DIMA4Wp6NAioDADWL2WV1e3w1AAAAAElFTkSuQmCC);' +
-'         background-position: right;' +
-'         background-repeat: no-repeat;' +
+'  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAQklEQVR42mNgGAWjYEQA5v9AAKQFQBwoe8gBJajDBVE88H+IgqEYA3JQhxsNRQ+A80BhYaH/UM4DIMA4Wp6NAioDADWL2WV1e3w1AAAAAElFTkSuQmCC);' +
+'  background-position: right;' +
+'  background-repeat: no-repeat;' +
 '}'+
 
 '<\/style>' +
@@ -90,15 +96,27 @@ var editboxHTML =
 '<textarea id=code class="expand close" style="background: #def; font-family: monospace;" name="ta" wrap="hard" spellcheck="false">' +
 '<\/textarea>' +
 '<\/form>' +
-'<div id="cookie" style="display: none;"><\/div>' +
+
 '<div id="loaded" style="display: none;">false<\/div>' +
 
 '<script type="text/javascript">' +
-'var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "text/html", lineNumbers: true, matchBrackets: true, lineWrapping: true, tabMode: "indent", onCursorActivity: function() {editor.setLineClass(hlLine, null, null);hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline"); editor.matchHighlight("CodeMirror-matchhighlight");}});' +
+'var editor = CodeMirror.fromTextArea(document.getElementById("code"), {' +
+'  mode: "text/html",' +
+'  lineNumbers: true,' +
+'  matchBrackets: true,' +
+'  lineWrapping: true,' +
+'  tabMode: "indent",' +
+'  onCursorActivity: function() {' +
+'    editor.setLineClass(hlLine, null, null);' +
+'    hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline");' +
+'    editor.matchHighlight("CodeMirror-matchhighlight");' +
+'  }' +
+'});' +
+
 'var hlLine = editor.setLineClass(0, "activeline");' +
 'editor.setOption("theme", "vibrant-ink");' +
 'editor.focus();' +
-'document.getElementById("cookie").addEventListener("load", function () { document.getElementById("cookie").innerHTML=window.localStorage.getItem("cookie"); }, false);' +
+
 '</scr' + 'ipt>' +
 
 '<\/body>' +
@@ -119,8 +137,7 @@ function init() {
   setInterval("saveLocally()", 500);
 }
 
-function update()
-{
+function update() {
   if (window.editbox.editor == undefined) return;
   code = window.editbox.editor.getValue();
   var d = dynamicframe.document; 
@@ -129,6 +146,11 @@ function update()
     old = code;
     d.open();
     d.write(old);
+    if (dynamicframe.document.title == '') {
+      document.title = 'sand';
+    } else {
+      document.title = dynamicframe.document.title;
+    }
     if (old.replace(/[\r\n]/g,'') == defaultStuff.replace(/[\r\n]/g,''))
       d.write(extraStuff);
     d.close();
@@ -137,16 +159,16 @@ function update()
 
 var cookie = ""
 function saveLocally() {
-    var cookie = window.editbox.document.getElementById('cookie').innerHTML;
-    if (window.editbox.document.getElementById('loaded').innerHTML == 'false') {
-        code = localStorage.getItem(cookie);
-        if (code == null) code = "";
-        window.editbox.editor.setValue(code);
-        window.editbox.document.getElementById('loaded').innerHTML = 'true';
-    } else {
-        code = window.editbox.editor.getValue();
-        localStorage.setItem(cookie, code);
-    }
+  var cookie = localStorage.getItem('cookie');
+  if (window.editbox.document.getElementById('loaded').innerHTML == 'false') {
+    code = localStorage.getItem(cookie);
+    if (code == null) code = "";
+    window.editbox.editor.setValue(code);
+    window.editbox.document.getElementById('loaded').innerHTML = 'true';
+  } else {
+    code = window.editbox.editor.getValue();
+    localStorage.setItem(cookie, code);
+  }
 }
 
 </script>
