@@ -129,11 +129,6 @@ function update()
     old = code;
     d.open();
     d.write(old);
-    if (dynamicframe.document.title == '') {
-        document.title = 'sand';
-    } else {
-        document.title = dynamicframe.document.title;
-    }
     if (old.replace(/[\r\n]/g,'') == defaultStuff.replace(/[\r\n]/g,''))
       d.write(extraStuff);
     d.close();
