@@ -77,7 +77,7 @@
           else document.title = dynamicframe.document.title;
           d.close();
         }
-        if (code == "") d.body.innerHTML = defaultStuff;
+        if (code == "" && d.body.innerHTML != defaultStuff) d.body.innerHTML = defaultStuff;
       }
 
       var cookie = ""
