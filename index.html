@@ -1,9 +1,8 @@
-
 <html>
   <head>
     <link href="assets/favicon.ico" rel="Shortcut Icon" />
     <meta charset="UTF-8">
-    <title>sand v5 (ace)</title>
+    <title>sand v5.3 (ace)</title>
     <script>
       var editboxHTML =
           '<script src="assets/hotkeys.js"><\/script>' +
@@ -83,14 +82,15 @@
       var cookie = ""
       function saveLocally() {
         var cookie = localStorage.getItem('cookie');
+        if (cookie == null) cookie = "";
         if (localStorage.getItem('loaded') == 'false') {
           code = localStorage.getItem(cookie);
           if (code == null) code = "";
           window.editbox.editor.setValue(code);
           localStorage.setItem('loaded', 'true');
-        } else {
-          code = window.editbox.editor.getValue();
-          localStorage.setItem(cookie, code);
+        }
+        else if (cookie	 != window.editbox.editor.getValue()) {
+          localStorage.setItem(cookie, window.editbox.editor.getValue());
         }
       }
 
