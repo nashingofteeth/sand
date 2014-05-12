@@ -83,7 +83,7 @@
       var cookie = ""
       function saveLocally() {
         var cookie = localStorage.getItem('cookie');
-        if (cookie == null) cookie = "";
+        if (cookie == null) localStorage.setItem("cookie", "");
         if (localStorage.getItem('loaded') == 'false') {
           code = localStorage.getItem(cookie);
           if (code == null) code = "";
