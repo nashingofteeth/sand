@@ -1,15 +1,16 @@
+<!-- sand v5.6 (ace) -->
 <html>
   <head>
     <link href="assets/favicon.ico" rel="Shortcut Icon" />
     <meta charset="UTF-8">
-    <title>sand v5.3 (ace)</title>
+    <title>sand</title>
     <script>
       var editboxHTML =
-          '<script src="assets/hotkeys.js"><\/script>' +
           '<script>' +
-          '  shortcut.add("Ctrl+Shift+X",function() { window.setCookie(); });' +
-          '  shortcut.add("Alt+Shift+X",function() { var value = editor.getValue(); prompt("Data URI:", "data:text/html, " + value); });' +
-          '  document.onkeydown = function(evt) { evt = evt || window.event; if (evt.keyCode == 27) { window.setCookie() }};' +
+          '  document.onkeydown = function(evt) { evt = evt || window.event;' +
+          '    if (evt.keyCode == 27) { evt.preventDefault(); window.setCookie() }' + 
+          '    if (evt.ctrlKey && evt.keyCode == 13) { evt.preventDefault(); window.setCookie() }' +
+          '  };' +
           '  function setCookie() {' +
           '    var cookieContent = localStorage.getItem("cookie");' +
           '    var cookie = prompt("Project name:", cookieContent);' +
@@ -49,6 +50,7 @@
           'var editor = ace.edit("editor");' +
           'editor.setTheme("ace/theme/monokai");' +
           'editor.getSession().setMode("ace/mode/html");' +
+          'editor.focus();' +
           '<\/script>';
 
       var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { text-align: center; font-family: "Open Sans", sans-serif; position: absolute; top: 50%; left: 50%; margin: -150px; color: #444; } a { color: #ff007f; } a:hover { text-decoration: none; } <\/style> <h1>Sand App<\/h1> <h4>A minimalist HTML editor<\/h4> by <a target="_blank" href="http://twitter.com/_hew">@_hew<\/a>';
@@ -85,14 +87,28 @@
         var cookie = localStorage.getItem('cookie');
         if (cookie == null) localStorage.setItem("cookie", "");
         if (localStorage.getItem('loaded') == 'false') {
+          // restore code
           code = localStorage.getItem(cookie);
           if (code == null) code = "";
           window.editbox.editor.setValue(code);
+          // restore cursor pos
+          if (localStorage.getItem('row') != null) {
+            row = parseInt(localStorage.getItem('row')) + 1;
+            col = localStorage.getItem('col');
+            window.editbox.editor.gotoLine(row,col,false);
+          }
+          // stop loop
           localStorage.setItem('loaded', 'true');
         }
+        // save code
         else if (cookie	 != window.editbox.editor.getValue()) {
           localStorage.setItem(cookie, window.editbox.editor.getValue());
         }
+	// save cursor pos
+        row = window.editbox.editor.getCursorPosition().row;
+	col = window.editbox.editor.getCursorPosition().column;
+        localStorage.setItem('row', row);
+	localStorage.setItem('col', col);
       }
 
     </script>
