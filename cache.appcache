@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+NETWORK:
+http://*
+
+CACHE:
+
+index.html
+assets/favicon.ico
+assets/ace/ace.js
+assets/ace/mode-html.js
+assets/ace/theme-monokai.js
+assets/ace/worker-html.js
+
+# 2015-01-02:v11

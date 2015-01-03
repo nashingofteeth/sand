@@ -1,5 +1,5 @@
-<!-- sand v5.6 (ace) -->
-<html>
+<!-- sand v5.7 (ace) -->
+<html lang="en" manifest="cache.appcache">
   <head>
     <link href="assets/favicon.ico" rel="Shortcut Icon" />
     <meta charset="UTF-8">
@@ -45,7 +45,8 @@
           '}' +
           '<\/style>' +
           '<div id="editor"><\/div>' +
-          '<script src="http://ace.c9.io/build/src/ace.js" charset="utf-8"><\/script>' +
+          // http://ace.c9.io/build/src/ace.js
+          '<script src="assets/ace/ace.js" charset="utf-8"><\/script>' +
           '<script>' +
           'var editor = ace.edit("editor");' +
           'editor.setTheme("ace/theme/monokai");' +
@@ -53,7 +54,7 @@
           'editor.focus();' +
           '<\/script>';
 
-      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { text-align: center; font-family: "Open Sans", sans-serif; position: absolute; top: 50%; left: 50%; margin: -150px; color: #444; } a { color: #ff007f; } a:hover { text-decoration: none; } <\/style> <h1>Sand App<\/h1> <h4>A minimalist HTML editor<\/h4> by <a target="_blank" href="http://twitter.com/_hew">@_hew<\/a>';
+      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { text-align: center; font-family: "Open Sans", sans-serif; position: absolute; top: 50%; left: 50%; margin: -20px auto auto -150px; color: #444; } <\/style>Press ESC or CTRL+ENTER to switch projects.';
 
       var old = '';
 

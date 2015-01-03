@@ -1,0 +1,18 @@
+{
+  "name": "Sand",
+  "description": "Simple, realtime HTML editor that works offline.",
+  "version": "5.7.1.0",
+  "manifest_version": 2,
+  "offline_enabled": true,
+  "icons": {
+    "128": "icon_128.png"
+  },
+  "app": {
+    "urls": [
+      "http://mtthw.me/sand/"
+    ],
+    "launch": {
+      "web_url": "http://mtthw.me/sand/"
+    }
+  }
+}
