@@ -13,7 +13,7 @@ if (isset($_POST['ta'])) {
 
 	if (file_exists("s/$string/index.html")) {
 		echo "<script>alert('The custom URL $string already exists :(')</script>";
-		header("Location: http://mtthw.me/instabin");
+		header("Location: http://mtthw.me/sand/archive/instabin");
 	}
 
 	else {
