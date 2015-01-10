@@ -1,4 +1,12 @@
-sand
+Sand - a realtime HTML editor
 =======
 
-Sandbox is a light-weight html editor that gives you an instant preview as you type.
+Features:
+- Works offline
+- Code saved locally
+- Cursor position is saved
+- Resizable workspace
+
+Keyboard shortcuts:
+ESC - switch project 
+CTRL ENTER - save to Gist
