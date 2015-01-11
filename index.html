@@ -98,7 +98,7 @@
       var cookie = ""
       function saveLocally() {
         var cookie = localStorage.getItem('cookie');
-        if (cookie == null) localStorage.setItem("cookie", "");
+        if (cookie == null) localStorage.setItem("cookie", "foo");
         if (localStorage.getItem('loaded') == 'false') {
           // restore code
           code = localStorage.getItem(cookie);
