@@ -1,15 +1,17 @@
 CACHE MANIFEST
 
 NETWORK:
-http://*
+http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
+http://malsup.github.com/jquery.form.js
+http://fonts.googleapis.com/css?family=Open+Sans
 
 CACHE:
 
 index.html
-assets/favicon.ico
-assets/ace/ace.js
-assets/ace/mode-html.js
-assets/ace/theme-monokai.js
-assets/ace/worker-html.js
+favicon.ico
+http://ace.c9.io/build/src/ace.js
+http://ace.c9.io/build/src/mode-html.js
+http://ace.c9.io/build/src/theme-monokai.js
+http://ace.c9.io/build/src/worker-html.js
 
-# last update: 2015-01-09:v19
+# last update: 2015-01-10:v4

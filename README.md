@@ -10,3 +10,9 @@ Features:
 Keyboard shortcuts:
 ESC - switch project 
 CTRL ENTER - save to Gist
+
+To-do:
+- Open webpages
+- Open Gists
+- Full Gist intergration
+- FTP/SFTP
