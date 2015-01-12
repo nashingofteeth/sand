@@ -9,9 +9,9 @@ CACHE:
 
 index.html
 favicon.ico
-http://ace.c9.io/build/src/ace.js
-http://ace.c9.io/build/src/mode-html.js
-http://ace.c9.io/build/src/theme-monokai.js
-http://ace.c9.io/build/src/worker-html.js
-
-# last update: 2015-01-10:v6
+ace/ace.js
+ace/mode-html.js
+ace/theme-monokai.js
+ace/worker-html.js
+ace/ext-searchbox.js
+# last update: 2015-01-11:v1
