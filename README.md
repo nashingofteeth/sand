@@ -9,7 +9,7 @@ Features:
 
 Keyboard shortcuts:
 ESC - switch project 
-CTRL ENTER - save to Gist
+CTRL S - save to Gist
 
 To-do:
 - Open webpages

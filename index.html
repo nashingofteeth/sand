@@ -1,7 +1,7 @@
-<!-- sand v6.2 (gist) -->
+<!-- sand v6.2 (gist) by Matthew Nash -->
 <html lang="en" manifest="cache.appcache">
   <head>
-    <link href="assets/favicon.ico" rel="Shortcut Icon" />
+    <link href="favicon.ico" rel="Shortcut Icon" />
     <meta charset="UTF-8">
     <title>sand</title>
     <script>
@@ -27,7 +27,8 @@
           // hotkeys
           '  document.onkeydown = function(evt) { evt = evt || window.event;' +
           '    if (evt.keyCode == 27) { evt.preventDefault(); window.setCookie() }' +
-          '    if (evt.ctrlKey && evt.keyCode == 13) { evt.preventDefault(); window.postToGist() }' +
+          '    if (evt.ctrlKey && evt.keyCode == 83) { evt.preventDefault(); window.postToGist() }' +
+          '    if (evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' +
           '  };' +
           '</scr' + 'ipt>' +
 
@@ -66,7 +67,9 @@
           '  editor.focus();' +
           '<\/script>';
 
-      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 20%; left: 35%; font-family: "Open Sans", sans-serif; color: #444; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.2)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC - switch project <br> CTRL ENTER - save to Gist';
+      var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
+
+      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 20%; left: 35%; font-family: "Open Sans", sans-serif; color: #444; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.2)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC - switch project <br> CTRL S - save to Gist';
 
       var old = '';
 
