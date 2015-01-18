@@ -13,10 +13,14 @@
           '  function setCookie() {' +
           '    var cookieContent = localStorage.getItem("cookie");' +
           '    var cookie = prompt("Project name:", cookieContent);' +
-          '    if (cookie == null) cookie = cookieContent;' +
-          '    editor.setValue("");' +
-          '    window.localStorage.setItem("cookie", cookie);'+
-          '    window.localStorage.setItem("loaded", "false");' +
+          '    if (cookie != null && cookie != cookieContent) {' +
+	  '      if (cookie == "") setCookie();' +
+	  '      else {' +
+          '        editor.setValue("");' +
+          '        window.localStorage.setItem("cookie", cookie);'+
+          '        window.localStorage.setItem("loaded", "false");' +
+	  '      }' +
+	  '    }' +
           '  }' +
           '  function postToGist() {' +
           '    document.getElementById("project").value = localStorage.getItem("cookie");' +
@@ -24,16 +28,33 @@
           '    $("#gistForm").ajaxSubmit({success: showResponse});' +
           '    function showResponse(responseText) {prompt("Public Gist URL:",responseText)}' +
           '  }' +
+          '  function openFile() {' +
+          '    var page = prompt("Page URL:", "http://");' +
+	  '    if (page != null && page != "") {' +
+          '      document.getElementById("url").value = page;' +
+          '      $("#urlForm").ajaxSubmit({success: showResponse});' +
+          '      function showResponse(responseText) {editor.setValue(responseText)}' +
+	  '    }' +
+          '  }' +
           // hotkeys
           '  document.onkeydown = function(evt) { evt = evt || window.event;' +
           '    if (evt.keyCode == 27) { evt.preventDefault(); window.setCookie() }' +
           '    if (evt.ctrlKey && evt.keyCode == 83) { evt.preventDefault(); window.postToGist() }' +
+          '    if (evt.ctrlKey && evt.shiftKey && evt.keyCode == 79) { evt.preventDefault(); window.openFile() }' +
           '    if (evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' +
+	  '    if (evt.ctrlKey && evt.keyCode == 73) {' +
+	  '      evt.preventDefault();' + 
+	  '      var selected = editor.session.getTextRange(editor.getSelectionRange());' +
+	  '      var tag = prompt("Tag name:", "");' +
+	  '      if (tag != null && tag != "") {' +
+	  '        editor.insert("<" + tag + ">" + selected + "</" + tag + ">");' +
+	  '      }' +
+	  '    }' +
           '  };' +
           '</scr' + 'ipt>' +
 
           '<style type="text/css" media="screen">' +
-          'html,body { overflow: hidden; }' +
+          'html,body { verflow: hidden; }' +
           '::-webkit-scrollbar {' +
           '  width: 5px;' +
           '  height: 5px;' +
@@ -46,7 +67,6 @@
           '  border-radius: 5px;' +
           '  padding-right: 50px;' +
           '}' +
-
           '#editor { ' +
           '  position: absolute;' +
           '  top: 0;' +
@@ -60,11 +80,15 @@
           '  <input type="hidden" name="code" id="code"\/>' +
           '  <input type="hidden" name="project" id="project"\/>' +
           '<\/form>' +
+          '<form id="urlForm" action="url.php" method="post">' +
+          '  <input type="hidden" name="url" id="url"\/>' +
+          '<\/form>' +
           '<script>' +
           '  var editor = ace.edit("editor");' +
           '  editor.setTheme("ace/theme/monokai");' +
           '  editor.getSession().setMode("ace/mode/html");' +
           '  editor.focus();' +
+	  '  editor.$blockScrolling("Infinity");' +
           '<\/script>';
 
       var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
