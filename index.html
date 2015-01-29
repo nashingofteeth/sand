@@ -1,4 +1,4 @@
-<!-- sand v6.2 (gist) by Matthew Nash -->
+<!-- sand v6.4 (instagist) by Matthew Nash -->
 <html lang="en" manifest="cache.appcache">
   <head>
     <link href="favicon.ico" rel="Shortcut Icon" />
@@ -7,41 +7,28 @@
     <script>
       var editboxHTML =
           '<script src="ace/ace.js" charset="utf-8"><\/script>' +
-	  '<script src="ace/ext-keybinding_menu.js"><\/script>' +
           '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"><\/script>' +
           '<script src="http://malsup.github.com/jquery.form.js"><\/script>' +
           '<script>' +
-          '  function setCookie() {' +
-          '    var cookieContent = localStorage.getItem("cookie");' +
-          '    var cookie = prompt("Project name:", cookieContent);' +
-          '    if (cookie != null && cookie != cookieContent) {' +
-	  '      if (cookie == "") setCookie();' +
-	  '      else {' +
+         // hotkeys
+          '  document.onkeydown = function(evt) { evt = evt || window.event;' +
+          '    if (evt.keyCode == 27) {' +
+	  '      evt.preventDefault();' +
+	  '      var cookieContent = localStorage.getItem("cookie");' +
+          '      var cookie = prompt("Project name:", cookieContent);' +
+          '      if (cookie != null && cookie != "" && cookie != cookieContent) {' +
           '        editor.setValue("");' +
           '        window.localStorage.setItem("cookie", cookie);'+
           '        window.localStorage.setItem("loaded", "false");' +
 	  '      }' +
 	  '    }' +
-          '  }' +
-          '  function postToGist() {' +
-          '    document.getElementById("project").value = localStorage.getItem("cookie");' +
-          '    document.getElementById("code").value = editor.getValue();' +
-          '    $("#gistForm").ajaxSubmit({success: showResponse});' +
-          '    function showResponse(responseText) {prompt("Public Gist URL:",responseText)}' +
-          '  }' +
-          '  function openFile() {' +
-          '    var page = prompt("Page URL:", "http://");' +
-	  '    if (page != null && page != "") {' +
-          '      document.getElementById("url").value = page;' +
-          '      $("#urlForm").ajaxSubmit({success: showResponse});' +
-          '      function showResponse(responseText) {editor.setValue(responseText)}' +
-	  '    }' +
-          '  }' +
-          // hotkeys
-          '  document.onkeydown = function(evt) { evt = evt || window.event;' +
-          '    if (evt.keyCode == 27) { evt.preventDefault(); window.setCookie() }' +
-          '    if (evt.ctrlKey && evt.keyCode == 83) { evt.preventDefault(); window.postToGist() }' +
-          '    if (evt.ctrlKey && evt.shiftKey && evt.keyCode == 79) { evt.preventDefault(); window.openFile() }' +
+          '    if (evt.ctrlKey && evt.keyCode == 83) {' +
+          '      evt.preventDefault();' +
+          '      document.getElementById("project").value = localStorage.getItem("cookie");' +
+          '      document.getElementById("code").value = editor.getValue();' +
+          '      $("#gistForm").ajaxSubmit({success: showResponse});' +
+          '      function showResponse(responseText) {prompt("Public Gist URL:",responseText)}' +
+          '    }' +
           '    if (evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' +
 	  '    if (evt.ctrlKey && evt.keyCode == 73) {' +
 	  '      evt.preventDefault();' + 
@@ -50,6 +37,10 @@
 	  '      if (tag != null && tag != "") {' +
 	  '        editor.insert("<" + tag + ">" + selected + "</" + tag + ">");' +
 	  '      }' +
+	  '    }' +
+	  '    if (evt.ctrlKey && evt.altKey && evt.keyCode == 72) {' +
+	  '      evt.preventDefault();' + 
+	  '      ace.config.loadModule("ace/ext/keybinding_menu", function(module) { module.init(editor);editor.showKeyboardShortcuts() });' + 
 	  '    }' +
           '  };' +
           '</scr' + 'ipt>' +
@@ -81,9 +72,6 @@
           '  <input type="hidden" name="code" id="code"\/>' +
           '  <input type="hidden" name="project" id="project"\/>' +
           '<\/form>' +
-          '<form id="urlForm" action="url.php" method="post">' +
-          '  <input type="hidden" name="url" id="url"\/>' +
-          '<\/form>' +
           '<script>' +
           '  var editor = ace.edit("editor");' +
           '  editor.setTheme("ace/theme/monokai");' +
@@ -94,7 +82,7 @@
 
       var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
 
-      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 20%; left: 35%; font-family: "Open Sans", sans-serif; color: #444; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.2)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC - switch project <br> CTRL S - save to Gist';
+      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 15vh; left: 30vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.4)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>CTRL-S: save to Gist<br>Ctrl-Alt-H: show Ace key bindings<br>Ctrl-B: build HTML structure';
 
       var old = '';
 

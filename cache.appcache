@@ -19,5 +19,8 @@ ace/ext-searchbox.js
 #http://ace.c9.io/build/src-min/theme-monokai.js
 #http://ace.c9.io/build/src-min/worker-html.js
 #http://ace.c9.io/build/src-min/ext-searchbox.js
+../a2u
+../keys
+../color
 
-# last update: 2015-01-29:v6
+# last update: 2015-01-29:v37
