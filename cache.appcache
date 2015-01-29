@@ -9,15 +9,15 @@ CACHE:
 
 index.html
 favicon.ico
-#ace/ace.js
-#ace/mode-html.js
-#ace/theme-monokai.js
-#ace/worker-html.js
-#ace/ext-searchbox.js
-http://ace.c9.io/build/src-min/ace.js
-http://ace.c9.io/build/src-min/mode-html.js
-http://ace.c9.io/build/src-min/theme-monokai.js
-http://ace.c9.io/build/src-min/worker-html.js
-http://ace.c9.io/build/src-min/ext-searchbox.js
+ace/ace.js
+ace/mode-html.js
+ace/theme-monokai.js
+ace/worker-html.js
+ace/ext-searchbox.js
+#http://ace.c9.io/build/src-min/ace.js
+#http://ace.c9.io/build/src-min/mode-html.js
+#http://ace.c9.io/build/src-min/theme-monokai.js
+#http://ace.c9.io/build/src-min/worker-html.js
+#http://ace.c9.io/build/src-min/ext-searchbox.js
 
-# last update: 2015-01-17:v18
+# last update: 2015-01-29:v6
