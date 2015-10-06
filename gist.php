@@ -4,7 +4,7 @@ if (isset($_POST['code']))
     $code = $_POST['code'];
     # Creating the array
     $data = array(
-        'public' => 1,
+        'public' => true,
         'files' => array(
             $_POST['project'].'.html' => array('content' => $code),
         ),

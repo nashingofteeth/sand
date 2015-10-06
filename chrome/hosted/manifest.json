@@ -1,7 +1,7 @@
 {
-  "name": "Sand",
+  "name": "Sand (HTML Editor)",
   "description": "Simple, realtime HTML editor that works offline.",
-  "version": "5.7.2",
+  "version": "5.7.3",
   "manifest_version": 2,
   "offline_enabled": true,
   "icons": {

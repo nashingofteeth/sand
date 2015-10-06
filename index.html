@@ -10,7 +10,7 @@
           '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"><\/script>' +
           '<script src="http://malsup.github.com/jquery.form.js"><\/script>' +
           '<script>' +
-         // hotkeys
+          // hotkeys
           '  document.onkeydown = function(evt) { evt = evt || window.event;' +
           '    if (evt.keyCode == 27) {' +
 	  '      evt.preventDefault();' +
@@ -22,14 +22,14 @@
           '        window.localStorage.setItem("loaded", "false");' +
 	  '      }' +
 	  '    }' +
-          '    if (evt.ctrlKey && evt.keyCode == 83) {' +
+          '    if (evt.metaKey && evt.keyCode == 83 || evt.ctrlKey && evt.keyCode == 83) {' +
           '      evt.preventDefault();' +
           '      document.getElementById("project").value = localStorage.getItem("cookie");' +
           '      document.getElementById("code").value = editor.getValue();' +
-          '      $("#gistForm").ajaxSubmit({success: showResponse});' +
           '      function showResponse(responseText) {prompt("Public Gist URL:",responseText)}' +
+          '      $("#gistForm").ajaxSubmit({success: showResponse});' +
           '    }' +
-          '    if (evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' +
+          '    if (evt.metaKey && evt.keyCode == 66 || evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' +
 	  '    if (evt.ctrlKey && evt.keyCode == 73) {' +
 	  '      evt.preventDefault();' + 
 	  '      var selected = editor.session.getTextRange(editor.getSelectionRange());' +
@@ -38,7 +38,7 @@
 	  '        editor.insert("<" + tag + ">" + selected + "</" + tag + ">");' +
 	  '      }' +
 	  '    }' +
-	  '    if (evt.ctrlKey && evt.altKey && evt.keyCode == 72) {' +
+	  '    if (evt.metaKey && evt.keyCode == 72 || evt.ctrlKey && evt.keyCode == 72) {' +
 	  '      evt.preventDefault();' + 
 	  '      ace.config.loadModule("ace/ext/keybinding_menu", function(module) { module.init(editor);editor.showKeyboardShortcuts() });' + 
 	  '    }' +
@@ -82,7 +82,7 @@
 
       var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
 
-      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 15vh; left: 30vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.4)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>CTRL-S: save to Gist<br>Ctrl-Alt-H: show Ace key bindings<br>Ctrl-B: build HTML structure';
+      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 10vh; left: 27vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.7)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>Ctrl+S: save to Gist<br>Ctrl+H: show Ace key bindings<br>Ctrl+B: build HTML structure<br>(Cmd on Macs)';
 
       var old = '';
 
