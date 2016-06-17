@@ -76,6 +76,9 @@
           '  editor.getSession().setMode("ace/mode/html");' +
           '  editor.focus();' +
 	        '  editor.$blockScrolling = Infinity;' +
+          // '  editor.getSession().on("change", function() { ' +
+          // '    SOMETHING();' +
+          // '  });' +
           '<\/script>';
 
       var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
@@ -90,8 +93,9 @@
         window.editbox.document.write(editboxHTML);
         window.editbox.document.close();
         localStorage.setItem(cookie + "loaded", "false"); // init code restoration
-        var update = setInterval("update()", 100);
-        var save = setInterval("saveLocally()", 500);
+
+        setInterval("saveLocally()", 100);
+        setInterval("update()", 100);
       }
 
       function update() {
@@ -140,7 +144,7 @@
     </script>
   </head>
 
-  <frameset resizable="yes" cols="*, 42%" border="5" onload="init();">
+  <frameset resizable="yes" cols="*, 40%" border="5" onload="init();">
     <frame name="dynamicframe" src="javascript:'';">
     <frame name="editbox" src="javascript:'';">
   </frameset>
