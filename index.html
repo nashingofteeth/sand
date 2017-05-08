@@ -89,7 +89,7 @@
 
       function init() {
         var cookie = window.location.hash.replace("#", "");
-        if (cookie == "") parent.window.location.hash = "#foo";
+        if (cookie == "" || cookie == "_=_") parent.window.location.hash = "#foo";
         window.editbox.document.write(editboxHTML);
         window.editbox.document.close();
         localStorage.setItem(cookie + "loaded", "false"); // init code restoration
