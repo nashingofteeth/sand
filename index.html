@@ -1,5 +1,6 @@
-<!-- sand v7.7 (hash) by Matthew Nash -->
-<html lang="en" manifest="cache.appcache">
+<!-- sand v7.8 (hash) by Matthew Nash -->
+<!-- <html lang="en" manifest="cache.appcache"> -->
+<html>
   <head>
     <link href="favicon.ico" rel="Shortcut Icon" />
     <meta charset="UTF-8">
@@ -10,11 +11,12 @@
           '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"><\/script>' +
           '<script src="http://malsup.github.com/jquery.form.js"><\/script>' +
           '<script>' +
+          '  function copyText(text) { const element = document.createElement("textarea"); element.value = text; document.body.appendChild(element); element.focus(); element.setSelectionRange(0, element.value.length); document.execCommand("copy"); document.body.removeChild(element); }' +
           // hotkeys 
           '  document.onkeydown = function(evt) { evt = evt || window.event;' +
           '    if (evt.keyCode == 27) {' + // ESC
 	        '      evt.preventDefault();' +
-	        '      var cookieContent = window.location.hash.replace("#", "");' +
+	        '      var cookieContent = top.location.hash.replace("#", "");' +
           '      var cookie = prompt("Project name:", cookieContent);' +
           '      if (cookie != null && cookie != "" && cookie != cookieContent) {' +
           '        parent.window.location.hash = "#" + cookie;'+
@@ -22,9 +24,9 @@
 	        '    }' +
           '    if (evt.metaKey && evt.keyCode == 83 || evt.ctrlKey && evt.keyCode == 83) {' + // Cmd/Ctrl + S
           '      evt.preventDefault();' +
-          '      document.getElementById("project").value = window.location.hash.replace("#", "");' +
+          '      document.getElementById("project").value = top.location.hash.replace("#", "");' +
           '      document.getElementById("code").value = editor.getValue();' +
-          '      function showResponse(responseText) {prompt("Public Gist URL:",responseText)}' +
+          '      function showResponse(responseText) {window.copyText(responseText); prompt("Gist URL:", responseText)}' +
           '      $("#gistForm").ajaxSubmit({success: showResponse});' +
           '    }' +
           '    if (evt.metaKey && evt.keyCode == 66 || evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' + // Cmd/Ctrl + B
@@ -74,6 +76,7 @@
           '  var editor = ace.edit("editor");' +
           '  editor.setTheme("ace/theme/monokai");' +
           '  editor.getSession().setMode("ace/mode/html");' +
+          '  editor.session.setUseWrapMode(true);' +
           '  editor.focus();' +
 	        '  editor.$blockScrolling = Infinity;' +
           // '  editor.getSession().on("change", function() { ' +
@@ -83,7 +86,7 @@
 
       var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
 
-      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 10vh; left: 27vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v6.7)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>Ctrl+S: save to Gist<br>Ctrl+H: show Ace key bindings<br>Ctrl+B: build HTML structure<br>(Cmd on Macs)';
+      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 10vh; left: 27vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v7)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>Ctrl+S: save to Gist<br>Ctrl+H: show Ace key bindings<br>Ctrl+B: build HTML structure<br>(Cmd on Macs)';
 
       var old = '';
 
