@@ -7,7 +7,6 @@ http://fonts.googleapis.com/css?family=Open+Sans
 
 CACHE:
 
-#../bc.html
 #index.html
 #favicon.ico
 #ace/ace.js
@@ -15,9 +14,6 @@ CACHE:
 #ace/theme-monokai.js
 #ace/worker-html.js
 #ace/ext-searchbox.js
-#../a2u
-#../keys
-#../color
 #http://ace.c9.io/build/src-min/ace.js
 #http://ace.c9.io/build/src-min/mode-html.js
 #http://ace.c9.io/build/src-min/theme-monokai.js

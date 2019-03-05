@@ -1,4 +1,4 @@
-<!-- sand v7.8 (hash) by Matthew Nash -->
+<!-- sand v7.9 (hash) by Matthew Nash -->
 <!-- <html lang="en" manifest="cache.appcache"> -->
 <html>
   <head>
@@ -7,9 +7,9 @@
     <title>sand</title>
     <script>
       var editboxHTML =
-          '<script src="ace/ace.js" charset="utf-8"><\/script>' +
+          '<script src="ace-builds/src-noconflict/ace.js" charset="utf-7"><\/script>' +
           '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"><\/script>' +
-          '<script src="http://malsup.github.com/jquery.form.js"><\/script>' +
+          '<script src="jquery.form.min.js"><\/script>' +
           '<script>' +
           '  function copyText(text) { const element = document.createElement("textarea"); element.value = text; document.body.appendChild(element); element.focus(); element.setSelectionRange(0, element.value.length); document.execCommand("copy"); document.body.removeChild(element); }' +
           // hotkeys 
@@ -86,7 +86,7 @@
 
       var structure = "<!doctype html>\n<html>\n    <head>\n        <title><\/title>\n        <script>\n            \n        <\/script>\n        <style>\n            \n        <\/style>\n    <\/head>\n    <body>\n        \n    <\/body>\n<\/html>";
 
-      var defaultStuff = '<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 10vh; left: 27vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v7)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>Ctrl+S: save to Gist<br>Ctrl+H: show Ace key bindings<br>Ctrl+B: build HTML structure<br>(Cmd on Macs)';
+      var defaultStuff = '<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> <style> body { position: absolute; top: 10vh; left: 27vw; font-family: "Open Sans", sans-serif; color: #444; font-size: 3vmin; } li { text-align: left; } span, h3 {font-weight: normal;} <\/style> <h1>Sand <span>(v7)<\/span><\/h1><h3>A realtime HTML editor<\/h3> <b>Features:<\/b><li>Works offline<\/li><li>Code saved locally<\/li><li>Cursor position is saved<\/li><li>Resizable workspace<\/li> <br> <b>Keyboard shortcuts:<\/b><br>ESC: switch project<br>Ctrl+S: save to Gist<br>Ctrl+H: show Ace key bindings<br>Ctrl+B: build HTML structure<br>(Cmd on Macs)';
 
       var old = '';
 
