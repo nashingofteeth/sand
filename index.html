@@ -12,7 +12,7 @@
           '<script src="jquery.form.min.js"><\/script>' +
           '<script>' +
           '  function copyText(text) { const element = document.createElement("textarea"); element.value = text; document.body.appendChild(element); element.focus(); element.setSelectionRange(0, element.value.length); document.execCommand("copy"); document.body.removeChild(element); }' +
-          // hotkeys 
+          // hotkeys
           '  document.onkeydown = function(evt) { evt = evt || window.event;' +
           '    if (evt.keyCode == 27) {' + // ESC
 	        '      evt.preventDefault();' +
@@ -31,7 +31,7 @@
           '    }' +
           '    if (evt.metaKey && evt.keyCode == 66 || evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' + // Cmd/Ctrl + B
 	        '    if (evt.metaKey && evt.keyCode == 73 || evt.ctrlKey && evt.keyCode == 73) {' + // Cmd/Ctrl + I
-	        '      evt.preventDefault();' + 
+	        '      evt.preventDefault();' +
 	        '      var selected = editor.session.getTextRange(editor.getSelectionRange());' +
 	        '      var tag = prompt("Tag name:", "");' +
 	        '      if (tag != null && tag != "") {' +
@@ -39,8 +39,8 @@
 	        '      }' +
 	        '    }' +
 	        '    if (evt.metaKey && evt.keyCode == 72 || evt.ctrlKey && evt.keyCode == 72) {' + // Cmd/Ctrl + H
-	        '      evt.preventDefault();' + 
-	        '      ace.config.loadModule("ace/ext/keybinding_menu", function(module) { module.init(editor);editor.showKeyboardShortcuts() });' + 
+	        '      evt.preventDefault();' +
+	        '      ace.config.loadModule("ace/ext/keybinding_menu", function(module) { module.init(editor);editor.showKeyboardShortcuts() });' +
 	        '    }' +
           '  };' +
           '</scr' + 'ipt>' +
