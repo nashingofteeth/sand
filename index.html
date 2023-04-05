@@ -22,13 +22,6 @@
           '        parent.window.location.hash = "#" + cookie;'+
 	        '      }' +
 	        '    }' +
-          '    if (evt.metaKey && evt.keyCode == 83 || evt.ctrlKey && evt.keyCode == 83) {' + // Cmd/Ctrl + S
-          '      evt.preventDefault();' +
-          '      document.getElementById("project").value = top.location.hash.replace("#", "");' +
-          '      document.getElementById("code").value = editor.getValue();' +
-          '      function showResponse(responseText) {window.copyText(responseText); prompt("Gist URL:", responseText)}' +
-          '      $("#gistForm").ajaxSubmit({success: showResponse});' +
-          '    }' +
           '    if (evt.metaKey && evt.keyCode == 66 || evt.ctrlKey && evt.keyCode == 66) { evt.preventDefault(); editor.setValue(top.structure) }' + // Cmd/Ctrl + B
 	        '    if (evt.metaKey && evt.keyCode == 73 || evt.ctrlKey && evt.keyCode == 73) {' + // Cmd/Ctrl + I
 	        '      evt.preventDefault();' +
@@ -68,10 +61,6 @@
           '}' +
           '<\/style>' +
           '<div id="editor"><\/div>' +
-          '<form id="gistForm" action="gist.php" method="post">' +
-          '  <input type="hidden" name="code" id="code"\/>' +
-          '  <input type="hidden" name="project" id="project"\/>' +
-          '<\/form>' +
           '<script>' +
           '  var editor = ace.edit("editor");' +
           '  editor.setTheme("ace/theme/monokai");' +
